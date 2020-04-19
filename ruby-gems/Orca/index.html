@@ -1,0 +1,1031 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Al-waleed Shihadeh">
+      
+      
+        <link rel="canonical" href="https://wshihadeh.github.io/ruby-gems/Orca/">
+      
+      
+        <meta name="author" content="wshihadeh">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+    
+    
+      
+        <title>Swarm Orca - Al-waleed Shihadeh</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#00bcd4">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../assets/styles/extra.css">
+    
+      <link rel="stylesheet" href="../../assets/styles/atom-one-light.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="cyan" data-md-color-accent="cyan">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#swarm-orca" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://wshihadeh.github.io" title="Al-waleed Shihadeh" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Al-waleed Shihadeh
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Swarm Orca
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/wshihadeh/wshihadeh.github.io/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://wshihadeh.github.io" title="Al-waleed Shihadeh" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Al-waleed Shihadeh
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/wshihadeh/wshihadeh.github.io/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Welcome" class="md-nav__link">
+      Welcome
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Ruby Gems
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Ruby Gems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Swarm Orca
+      </label>
+    
+    <a href="./" title="Swarm Orca" class="md-nav__link md-nav__link--active">
+      Swarm Orca
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#command-line" class="md-nav__link">
+    Command Line
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    Install
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    Commands
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install_1" class="md-nav__link">
+    Install
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#define-your-services-and-application" class="md-nav__link">
+    Define your services and application
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#define-your-services-and-applications-configurations" class="md-nav__link">
+    Define your services and applications configurations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-seeds" class="md-nav__link">
+    Application Seeds
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-database-migrations" class="md-nav__link">
+    Application Database migrations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-strategy" class="md-nav__link">
+    Deployment Strategy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#one-time-migrations" class="md-nav__link">
+    One Time migrations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-migrations" class="md-nav__link">
+    Data migrations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erb-templates" class="md-nav__link">
+    ERB templates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shared-configuration" class="md-nav__link">
+    Shared Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-deployment" class="md-nav__link">
+    Local Deployment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encrypted-attribute" class="md-nav__link">
+    Encrypted attribute
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#swarm-orca-deployment" class="md-nav__link">
+    Swarm Orca Deployment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#swarm-orca-special-roles" class="md-nav__link">
+    Swarm Orca special roles
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../RabbitMQ/" title="RabbitMQ Client" class="md-nav__link">
+      RabbitMQ Client
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DelayedJobMetrics/" title="DelayedJob Metrics" class="md-nav__link">
+      DelayedJob Metrics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DeepHealthCheck/" title="DeepHealthCheck" class="md-nav__link">
+      DeepHealthCheck
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#command-line" class="md-nav__link">
+    Command Line
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    Install
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    Commands
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install_1" class="md-nav__link">
+    Install
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#define-your-services-and-application" class="md-nav__link">
+    Define your services and application
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#define-your-services-and-applications-configurations" class="md-nav__link">
+    Define your services and applications configurations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-seeds" class="md-nav__link">
+    Application Seeds
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-database-migrations" class="md-nav__link">
+    Application Database migrations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-strategy" class="md-nav__link">
+    Deployment Strategy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#one-time-migrations" class="md-nav__link">
+    One Time migrations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-migrations" class="md-nav__link">
+    Data migrations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erb-templates" class="md-nav__link">
+    ERB templates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shared-configuration" class="md-nav__link">
+    Shared Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-deployment" class="md-nav__link">
+    Local Deployment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encrypted-attribute" class="md-nav__link">
+    Encrypted attribute
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#swarm-orca-deployment" class="md-nav__link">
+    Swarm Orca Deployment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#swarm-orca-special-roles" class="md-nav__link">
+    Swarm Orca special roles
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/wshihadeh/wshihadeh.github.io/edit/source/docs/content/ruby-gems/Orca.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="swarm-orca">Swarm Orca<a class="headerlink" href="#swarm-orca" title="Permanent link">&para;</a></h1>
+<p>This gem includes a set of capistrano recipes used to deploy services and rails applications to a swarm cluster.</p>
+<h2 id="command-line">Command Line<a class="headerlink" href="#command-line" title="Permanent link">&para;</a></h2>
+<h3 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-sh">$~&gt; gem install swarm_orca</code></pre>
+
+<h3 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-sh">$~&gt; orca decrypt KEY CIPHER # This Command will decrypt the given cipher
+$~&gt; orca encrypt KEY TEXT # This Command will encrypt the given text
+$~&gt; orca gen_enc_key # This Command will generate new encryption key
+$~&gt; orca help [COMMAND] # Describe available commands or one specific command
+$~&gt; orca new ORCA_DIRECTORY_NAME GIT_FORK DOCKER_NETWORK  # This Command will create a new Orca project</code></pre>
+
+<h2 id="install_1">Install<a class="headerlink" href="#install_1" title="Permanent link">&para;</a></h2>
+<p>Add the following to your <code>Gemfile</code>.</p>
+<pre class="highlight"><code class="language-ruby">group :deployment do
+  gem 'capistrano'
+  gem 'swarm_orca'
+end</code></pre>
+
+<p>Then run</p>
+<pre class="highlight"><code class="language-sh">$~&gt; bundle install</code></pre>
+
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Add the following to your <code>Capfile</code>.</li>
+</ul>
+<pre class="highlight"><code class="language-ruby">require "swarm_orca"</code></pre>
+
+<ul>
+<li>Add the following to your <code>deploy.rb</code>.</li>
+</ul>
+<pre class="highlight"><code class="language-ruby">require "capistrano/swarm_orca/set_global_config"
+
+set :fork, "${YOUR_FORK_NAME}"
+# example
+
+set (:db_apps_stacks_mapping), {
+  core: %w(api-backend mobile-backedn),
+  frontend: %w(),
+}
+
+require "capistrano/swarm_orca/deploy"
+require "capistrano/swarm_orca/docker"
+</code></pre>
+
+<h2 id="define-your-services-and-application">Define your services and application<a class="headerlink" href="#define-your-services-and-application" title="Permanent link">&para;</a></h2>
+<p>Swarm orca define the managed services and applications in <code>deploy.rb</code>.</p>
+<ul>
+<li>service_stacks: array include the services stack names. That do not need custome docker images and do not have a database.</li>
+<li>service_stacks_with_build_image: services that need a custome docker image.</li>
+<li>db_apps_stacks_mapping: stacks for your rails application. keys are the stack names and values are the database application names. For example, the core stack include two database applications. While the frontend have no database application.</li>
+</ul>
+<pre class="highlight"><code class="language-ruby">set (:db_apps_stacks_mapping), {
+  core: %w(api-backend mobile-backedn),
+  frontend: %w(),
+}</code></pre>
+
+<ul>
+<li>elasticsearch_apps: application names that are connected to elasticsearch.</li>
+</ul>
+<h2 id="define-your-services-and-applications-configurations">Define your services and applications configurations<a class="headerlink" href="#define-your-services-and-applications-configurations" title="Permanent link">&para;</a></h2>
+<p>Swarm Orca manage the stacks and application configurations in the stage files under <code>capistrano/config/deploy</code></p>
+<ul>
+<li>each stack must have the <code>stack_name</code> to define the stack name.</li>
+<li>docker image , tag and other configs can be configured in the same way. These items depend on the stack file <code>orca/application_stack</code> it self and the applications needed by the application.</li>
+</ul>
+<pre class="highlight"><code class="language-ruby">set :mysql,
+    stack_name: 'mysql',
+    mysql_docker_image: 'mysql',
+    mysql_docker_image_tag: '5.7',
+    mysql_volume: "#{fetch(:deploy_to)}/mysql"</code></pre>
+
+<ul>
+<li>Special config keys:
+  {application}_database_url: Database URL for the rails application.
+  docker_image_prefix: docker image prefix(host and namespace)
+  {application}_docker_image: Docker image name
+  {application}_docker_image_tag: Docker image tag.</li>
+</ul>
+<h2 id="application-seeds">Application Seeds<a class="headerlink" href="#application-seeds" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Define your application seeds</p>
+<ul>
+<li>By default Swarm orca gem will execute <code>rake db:seed</code> to run the seeds for your defined applications.</li>
+<li>In Addition, Swarm orca gem support custom seeds. To implement a custom seed in your Orca please follow these instruction.<ul>
+<li>Create a new folder in the root directory and call it "seeds".</li>
+<li>Add a seed file for each of your application. The file name should follow this schema "${application_name}.rb"</li>
+<li>Example of seeds for backend application</li>
+</ul>
+</li>
+</ul>
+<pre class="highlight"><code class="language-ruby">cat seeds/backend.rb
+Rails.application.load_tasks
+Rake::Task['roles:reseed_defaults'].execute</code></pre>
+
+</li>
+</ul>
+<h2 id="application-database-migrations">Application Database migrations<a class="headerlink" href="#application-database-migrations" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Define migrations, seeds and elasticsearch reindex.<ul>
+<li>To be able to execute migrations, seeds and elasticsearch reindex, you need to explicitly define the roles on your stage.</li>
+<li>Example: our backend stack is using db and elasticsearch</li>
+</ul>
+</li>
+</ul>
+<pre class="highlight"><code class="language-ruby">server "${server}", user: "deploy", roles: %w{${stack}_db ${stack}_reindex}
+server "${server}", user: "deploy", roles: %w{backend_db backend_reindex}</code></pre>
+
+<h2 id="deployment-strategy">Deployment Strategy<a class="headerlink" href="#deployment-strategy" title="Permanent link">&para;</a></h2>
+<p>By default capistrano supports only git deployment strategy to support xopy strategy do the following:</p>
+<ul>
+<li>Apply these changes to your <code>Capfile</code></li>
+</ul>
+<pre class="highlight"><code class="language-diff">  -require "capistrano/scm/git"
+  +scm = ENV.fetch('SCM', 'git')
+  +require "capistrano/scm/#{scm}"
+  +install_plugin Module.const_get("Capistrano::SCM::#{scm.capitalize}")</code></pre>
+
+<ul>
+<li>To deploy with Copy strategy add "SCM=copy" to the command line.</li>
+</ul>
+<pre class="highlight"><code class="language-sh">$~&gt; SCM=copy bundle exec cap ${stage} deploy:${stack}</code></pre>
+
+<h2 id="one-time-migrations">One Time migrations<a class="headerlink" href="#one-time-migrations" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Execute One Time migrations from orca.</p>
+<ul>
+<li>Orca generate a rake task for executing one time migrations for each of the defined database application.</li>
+<li>These tasks are defined like the following example.</li>
+</ul>
+<pre class="highlight"><code class="language-ruby">deploy:otm_${application}[${migration_name}]
+# deploy:otm_backend[update_referral_bonus_transactions_text]</code></pre>
+
+<ul>
+<li>The migration task should be defined in the project source code under the name space "one_time_migrations"</li>
+</ul>
+</li>
+</ul>
+<h2 id="data-migrations">Data migrations<a class="headerlink" href="#data-migrations" title="Permanent link">&para;</a></h2>
+<p>To support data migration for individual applications, do the following.
+    - Add a new configuration item with the following pattern "${app_name}_data_migrate" to your stack configurations. The value of the item must be true to switch db:migrate to db:migrate:with_data. See the example below for add migrate with data support to a backend application.</p>
+<pre class="highlight"><code class="language-ruby">set :backend, {
+    stack_name: 'backend',
+    backend_data_migrate: 'true',
+....
+  }</code></pre>
+
+<h2 id="erb-templates">ERB templates<a class="headerlink" href="#erb-templates" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Setup Stacks ERB templates<ul>
+<li>Create an ERB template for each of your stacks. Use the extension "erb" for your stacks.<ul>
+<li>Example : docker-stack-backend.yml.erb</li>
+</ul>
+</li>
+<li>Add the following line to deploy.rb<ul>
+<li>set (:docker_erb_templates) { true }</li>
+</ul>
+</li>
+<li>Ensure the all container environment variables are double-qouted</li>
+</ul>
+</li>
+</ul>
+<h2 id="shared-configuration">Shared Configuration<a class="headerlink" href="#shared-configuration" title="Permanent link">&para;</a></h2>
+<ul>
+<li>To set shared configurations that are available for all stacks, use the following syntax.</li>
+</ul>
+<pre class="highlight"><code class="language-ruby">  set :shared, {
+     global_variable: 'value_123'
+  }</code></pre>
+
+<ul>
+<li>To set shared application configurations that are available in all stacks with special key.
+Need to create shared application set like:</li>
+</ul>
+<pre class="highlight"><code class="language-ruby">  set :backend_shared, {
+     environment_label: "staging",
+  }</code></pre>
+
+<p>Add special key to include shared application config to application config</p>
+<pre class="highlight"><code class="language-ruby">  set :web_backend {
+    include_shared_config: 'backend_shared',
+  }
+  set :mobile_backend {
+    include_shared_config: 'backend_shared',
+  }</code></pre>
+
+<h2 id="local-deployment">Local Deployment<a class="headerlink" href="#local-deployment" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Support Local Deployment with Swarm Orca<ul>
+<li>To Be able to deploy locally with orca, you need to implement the following changes on your orca project.<ul>
+<li>Create a local stage with your configs. See below template.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre class="highlight"><code class="language-ruby">  server "${server}", ENV.fetch('USER', '${user}'),
+  roles: %w{
+    swarm_manager
+  }
+  set (:deploy_to) { "${deploy_to_path}" }</code></pre>
+
+<pre class="highlight"><code>    - ${server}: Can be replaced by by "localhost", "127.0.0.1" or any domain that include "local" in it.
+    - ${user}: Default it will use the ENV 'USER' value, but if this ENV 'USER' is not defined, you can also defined another/own user.
+    - ${deploy_to_path}: the destination deploy to path.
+    - You mast include at least  "swarm_manager" role.
+- Example deploying mysql and rabbitMq
+</code></pre>
+
+<pre class="highlight"><code class="language-ruby">  server "127.0.0.1", ENV.fetch('USER', 'shihadeh'),
+  roles: %w{
+    mysql
+    rabbitmq
+    swarm_manager
+  }
+
+  set (:deploy_to) { "/Users/shihadeh/ggs" }
+  # set the path to the docker command.
+  set (:docker_path) { "" }
+
+  set :mysql, {
+    stack_name: 'mysql',
+    mysql_docker_image: 'mysql',
+    mysql_docker_image_tag: '5.7',
+  }
+
+  set :rabbitmq, {
+    rabbitmq_docker_image: 'rabbitmq',
+    stack_name: 'rabbitmq_fr',
+    rabbitmq_docker_image_tag: '3.6-management',
+    rabbitmq_volume: '/Users/shihadeh/ggs/rmq'
+  }</code></pre>
+
+<h2 id="encrypted-attribute">Encrypted attribute<a class="headerlink" href="#encrypted-attribute" title="Permanent link">&para;</a></h2>
+<p>To support encrypted configuration do the follwing:</p>
+<pre class="highlight"><code>- Create a new encryption key using orc cli.
+- Use orca cli to encrypt the attributes.
+- set the encrypted attributes (you must prefix the attribute key with 'encrypted_' ie. `encrypted_cs_database_url`). for instance
+</code></pre>
+
+<pre class="highlight"><code class="language-ruby">set :backend,
+  stack_name: 'backend',
+  backend_docker_image: 'backend',
+  backend_docker_image_tag: 'develop',
+  encrypted_backend_database_url: 'h/UNau5AFvhxDbUkBZbPw6RBJzkTPjIMmWOQ+lQ==',</code></pre>
+
+<pre class="highlight"><code>- export the encryption key one the machine where the deployemnt scripts will be executed ie (your local machine or jenkins nodes).
+</code></pre>
+
+<h2 id="swarm-orca-deployment">Swarm Orca Deployment<a class="headerlink" href="#swarm-orca-deployment" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Start deployment<ul>
+<li>You can use the following commands to setup and deploy locally</li>
+</ul>
+</li>
+</ul>
+<pre class="highlight"><code class="language-sh"># setup and deploy, it will created dbs, and run seeds
+$~&gt; bundle exec cap ${stage} deploy:development_setup</code></pre>
+
+<pre class="highlight"><code>- Build custom docker images manually
+</code></pre>
+
+<pre class="highlight"><code class="language-sh">$~&gt; bundle exec cap ${stage} deploy:build_images</code></pre>
+
+<pre class="highlight"><code>- Deploy individual stacks
+</code></pre>
+
+<pre class="highlight"><code class="language-sh">$~&gt; bundle exec cap ${stage} deploy:${stack}</code></pre>
+
+<pre class="highlight"><code>- Deployment with specific fork
+</code></pre>
+
+<p>Swarm orca defines a defult for for deployment. The fork value can be changed by setting the ENV 'FORK'.</p>
+<pre class="highlight"><code class="language-sh">$~&gt; FORK=${forkName}  bundle exec cap ${stage} deploy:${stack}</code></pre>
+
+<p>Example deploying with fork 'shihadeh'</p>
+<pre class="highlight"><code class="language-sh">$~&gt; FORK=shihadeh bundle exec cap ${stage} deploy:${stack}</code></pre>
+
+<ul>
+<li>Deploy more than one stack</li>
+</ul>
+<pre class="highlight"><code class="language-sh">$~&gt; DEPLOYED_STACKS="mysql rabbitmq" bundle exec cap ${stage} deploy:auto</code></pre>
+
+<ul>
+<li>Deploy without building docker images.</li>
+</ul>
+<pre class="highlight"><code class="language-sh">$~&gt; BUILD_IMAGE=false bundle exec cap ${stage} deploy:${stack}</code></pre>
+
+<ul>
+<li>Deploy all</li>
+</ul>
+<pre class="highlight"><code class="language-sh">$~&gt; bundle exec cap ${stage} deploy:all</code></pre>
+
+<pre class="highlight"><code>- Recreate DBS for an environment
+Use deploy:recreate_all_dbs task to return an envornment(stage) databases to the initial stage
+Example recreating DBS for an environment(stage)
+</code></pre>
+
+<pre class="highlight"><code class="language-sh">$~&gt; bundle exec cap ${stage} deploy:recreate_all_dbs</code></pre>
+
+<ul>
+<li>Deploy Debug Mode</li>
+</ul>
+<pre class="highlight"><code class="language-sh">$~&gt; ORCA_DEBUG=true bundle exec cap ${stage} ${task}</code></pre>
+
+<ul>
+<li>Deployment without cleaning up old docker images.<ul>
+<li>Add the <code>PRUNE=false</code> variable to your deployment command.</li>
+</ul>
+</li>
+</ul>
+<pre class="highlight"><code class="language-sh">$~&gt; PRUNE=false bundle exec cap local deploy:auto</code></pre>
+
+<h2 id="swarm-orca-special-roles">Swarm Orca special roles<a class="headerlink" href="#swarm-orca-special-roles" title="Permanent link">&para;</a></h2>
+<ul>
+<li>swarm_manager : Nodes with this command will be used to execute deployment commands. You only need one node this role per stage.</li>
+<li>swarm_node: Swarm Orca will try to cleanup old images or containers on the nodes with this role.</li>
+<li>stack: To be able to deploy service X to a given cluster, you must to include the X as a role for a manager node in that cluster.</li>
+<li>
+<h1 id="stack_db-this-role-indeicate-where-the-database-migration-will-be-executed">{stack}_db: This role indeicate where the database migration will be executed.<a class="headerlink" href="#stack_db-this-role-indeicate-where-the-database-migration-will-be-executed" title="Permanent link">&para;</a></h1>
+</li>
+<li>
+<h1 id="stack_reindex-this-role-indeicate-where-the-elasticsearch-reindexing-will-be-executed">{stack}_reindex: This role indeicate where the elasticsearch reindexing will be executed.<a class="headerlink" href="#stack_reindex-this-role-indeicate-where-the-elasticsearch-reindexing-will-be-executed" title="Permanent link">&para;</a></h1>
+</li>
+</ul>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+    <!-- Further information -->
+    <div class="md-footer-meta md-typeset">
+        <div class="md-footer-meta__inner md-grid">
+
+            <!-- Copyright and theme information -->
+            <div class="md-footer-copyright">
+                
+                <div class="md-footer-copyright__highlight">
+                    Copyright &copy; 2016-2019 Al-waleed Shihadeh
+                </div>
+                
+            </div>
+
+            <!-- Social links -->
+            
+            
+            
+        </div>
+    </div>
+</footer>
+
+
+    </div>
+    
+      <script src="../../assets/javascripts/application.ac79c3b0.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="../../assets/js/hljs/highlight.pack.js"></script>
+      
+        <script src="../../assets/js/extra.js"></script>
+      
+    
+  </body>
+</html>
