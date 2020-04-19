@@ -285,9 +285,92 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        RabbitMQ Client
+      </label>
+    
     <a href="./" title="RabbitMQ Client" class="md-nav__link md-nav__link--active">
       RabbitMQ Client
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurations" class="md-nav__link">
+    Configurations
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#full-configuration-example" class="md-nav__link">
+    Full Configuration Example
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#append-plungins-or-whitelist-items" class="md-nav__link">
+    Append plungins or whitelist items
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publishing-messages-to-rabbitmq" class="md-nav__link">
+    Publishing messages to RabbitMQ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugins" class="md-nav__link">
+    Plugins
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -338,6 +421,76 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurations" class="md-nav__link">
+    Configurations
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#full-configuration-example" class="md-nav__link">
+    Full Configuration Example
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#append-plungins-or-whitelist-items" class="md-nav__link">
+    Append plungins or whitelist items
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publishing-messages-to-rabbitmq" class="md-nav__link">
+    Publishing messages to RabbitMQ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugins" class="md-nav__link">
+    Plugins
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -352,6 +505,154 @@
                 
                 
                 <h1 id="rabbitmq">RabbitMQ<a class="headerlink" href="#rabbitmq" title="Permanent link">&para;</a></h1>
+<pre class="highlight"><code class="language-sh"> ____       _     _     _ _   __  __  ___     ____ _ _            _
+|  _ \ __ _| |__ | |__ (_) |_|  \/  |/ _ \   / ___| (_) ___ _ __ | |_
+| |_) / _` | '_ \| '_ \| | __| |\/| | | | | | |   | | |/ _ \ '_ \| __|
+|  _ &lt; (_| | |_) | |_) | | |_| |  | | |_| | | |___| | |  __/ | | | |_
+|_| \_\__,_|_.__/|_.__/|_|\__|_|  |_|\__\_\  \____|_|_|\___|_| |_|\__|
+</code></pre>
+
+<p>Simplifying RabbitMQ for Ruby apps!</p>
+<p>RabbitMQ Client is a ruby client library for applications dealing with <a href="https://www.rabbitmq.com/">RabbitMQ</a>.</p>
+<ul>
+<li>It wraps common behaviors needed by publishers and subscribers in an easy and convenient API.</li>
+<li>It uses both <code>bunny</code> and <code>connection_pool</code> to manage RabbitMQ communications.</li>
+<li>It is extendable using plugins.</li>
+</ul>
+<p>Why RabbitMQ Client? Why not <code>bunny</code> and <code>connection_pool</code> directly? Well, gems are just a clients. You still need to write a lot of code to manage proper subscribing and publishing of messages. You need to do error handling, passing request headers  to RabbitMQ and maybe logging/instrumenting the message management process. Finally, you also need to consider how to deploy your app and how to start it.</p>
+<p>With RabbitMQ Client by your side, all this becomes smooth and easy.</p>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<p>Add this line to your application's Gemfile:</p>
+<pre class="highlight"><code class="language-ruby">gem 'rabbitmq_client'</code></pre>
+
+<p>And then execute:</p>
+<pre class="highlight"><code class="language-sh">$~&gt; bundle</code></pre>
+
+<p>Or install it yourself as:</p>
+<pre class="highlight"><code class="language-sh">$~&gt; gem install rabbitmq_client</code></pre>
+
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<p>RabbitMQ Client can be used to publsih and subscribe RabbitMQ messages.</p>
+<h2 id="configurations">Configurations<a class="headerlink" href="#configurations" title="Permanent link">&para;</a></h2>
+<p>RabbitMQ Client support the following configurations</p>
+<table>
+<thead>
+<tr>
+<th>Configuration</th>
+<th>Description</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rabbitmq_url</td>
+<td>RabbitMQ server URL</td>
+<td>amqp://guest:guest@127.0.0.1:5672</td>
+</tr>
+<tr>
+<td>logger_configs.logs_format</td>
+<td>RabbitmqClient logs format.<br>values can be either json or plain</td>
+<td>plain</td>
+</tr>
+<tr>
+<td>logger_configs.logs_level</td>
+<td>RabbitmqClient logs level.<br>values can be one of :debug, :info, :error</td>
+<td>info</td>
+</tr>
+<tr>
+<td>logger_configs.logs_filename</td>
+<td>Logs file name, if nil STOUT will be used</td>
+<td>nil</td>
+</tr>
+<tr>
+<td>logger_configs.logger</td>
+<td>Logger object, if nil STOUT logger will created</td>
+<td>nil</td>
+</tr>
+<tr>
+<td>session_params.heartbeat_publisher</td>
+<td>Heartbeat interval for publisher sessions.<br>0 means no heartbeat</td>
+<td>0</td>
+</tr>
+<tr>
+<td>session_params.session_pool</td>
+<td>Number of sessions with rabbitmq</td>
+<td>1</td>
+</tr>
+<tr>
+<td>plugins</td>
+<td>Array of used plugins</td>
+<td>[]</td>
+</tr>
+<tr>
+<td>global_store</td>
+<td>Global Store used to store tags and headers: <br><a href="https://github.com/fidor/request_headers_middleware">RequestHeaderMiddleware</a><br><a href="https://github.com/steveklabnik/request_store">RequestStore</a></td>
+<td>nil</td>
+</tr>
+<tr>
+<td>whitelist</td>
+<td>List of whitelisted headers</td>
+<td>['x-request-id'.to_sym]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="full-configuration-example">Full Configuration Example<a class="headerlink" href="#full-configuration-example" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-ruby">RabbitmqClient.configure do |config|
+  config.rabbitmq_url = "${rabbitmq_url}"
+  config.logger_configs = {
+    logs_format: 'plain',
+    logs_level: :info,
+    logs_filename: nil,
+    logger: nil
+  }
+  config.session_params = {
+    heartbeat_publisher: 0,
+    session_pool: 1
+  }
+  config.plugins = []
+  config.global_store = RequestHeaderMiddleware
+  config.whitelist =  ['x-request-id'.to_sym]
+end</code></pre>
+
+<h4 id="append-plungins-or-whitelist-items">Append plungins or whitelist items<a class="headerlink" href="#append-plungins-or-whitelist-items" title="Permanent link">&para;</a></h4>
+<pre class="highlight"><code class="language-ruby"> RabbitmqClient.plugins &lt;&lt; MYRabbitmqClientPlugin
+ RabbitmqClient.whitelist &lt;&lt; :white_listed_header_key</code></pre>
+
+<h2 id="publishing-messages-to-rabbitmq">Publishing messages to RabbitMQ<a class="headerlink" href="#publishing-messages-to-rabbitmq" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Publish messages using RabbitmqClient singleton publisher</li>
+</ul>
+<pre class="highlight"><code class="language-ruby">  # RabbitmqClient.add_exchange(exchange, type, options)
+  RabbitmqClient.add_exchange('default.rabbitmq_client', :topic, {})
+  # RabbitmqClient.publish(payload, options)
+  RabbitmqClient.publish({id: 10, name: 'rabbitmq_client'}, { exchange_name: 'default.rabbitmq_client' })</code></pre>
+
+<ul>
+<li>Create a publisher and use it</li>
+</ul>
+<pre class="highlight"><code class="language-ruby">  config = {
+    rabbitmq_url: val,
+    exchange_registry: val,
+    session_params: { heartbeat_publisher: val }
+  }
+ publisher = RabbitmqClient::Publisher.new(config)
+ publisher.publish(payload, options)</code></pre>
+
+<h2 id="plugins">Plugins<a class="headerlink" href="#plugins" title="Permanent link">&para;</a></h2>
+<p>RabbitmqClient plugins are classes that define a callbacks that can be executed before or after events that occuers during RabbitmqClient lifecycle.
+Current supprted lifecycle events are:</p>
+<ul>
+<li>publish: occure when publishing a massage is triggered.</li>
+</ul>
+<p>Here is an example where we define a plugin to add some headers to message options before publishing the message.</p>
+<pre class="highlight"><code class="language-ruby">  class MQTestPlugin &lt; RabbitmqClient::Plugin
+    callbacks do |lifecycle|
+      lifecycle.before(:publish) do |_message, options|
+        options[:headers] = { test_key:  'test'}
+      end
+    end
+  end
+  RabbitmqClient.plugins &lt;&lt; MQTestPlugin</code></pre>
                 
                   
                 

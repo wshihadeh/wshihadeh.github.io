@@ -414,6 +414,19 @@
     Swarm Orca Deployment
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-deployment" class="md-nav__link">
+    Start deployment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -617,6 +630,19 @@
   <a href="#swarm-orca-deployment" class="md-nav__link">
     Swarm Orca Deployment
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-deployment" class="md-nav__link">
+    Start deployment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -881,44 +907,42 @@ Need to create shared application set like:</li>
 
 <h2 id="encrypted-attribute">Encrypted attribute<a class="headerlink" href="#encrypted-attribute" title="Permanent link">&para;</a></h2>
 <p>To support encrypted configuration do the follwing:</p>
-<pre class="highlight"><code>- Create a new encryption key using orc cli.
-- Use orca cli to encrypt the attributes.
-- set the encrypted attributes (you must prefix the attribute key with 'encrypted_' ie. `encrypted_cs_database_url`). for instance
-</code></pre>
-
+<ul>
+<li>Create a new encryption key using orc cli.</li>
+<li>Use orca cli to encrypt the attributes.</li>
+<li>set the encrypted attributes (you must prefix the attribute key with 'encrypted_' ie. <code>encrypted_cs_database_url</code>). for instance</li>
+</ul>
 <pre class="highlight"><code class="language-ruby">set :backend,
   stack_name: 'backend',
   backend_docker_image: 'backend',
   backend_docker_image_tag: 'develop',
   encrypted_backend_database_url: 'h/UNau5AFvhxDbUkBZbPw6RBJzkTPjIMmWOQ+lQ==',</code></pre>
 
-<pre class="highlight"><code>- export the encryption key one the machine where the deployemnt scripts will be executed ie (your local machine or jenkins nodes).
-</code></pre>
-
-<h2 id="swarm-orca-deployment">Swarm Orca Deployment<a class="headerlink" href="#swarm-orca-deployment" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Start deployment<ul>
-<li>You can use the following commands to setup and deploy locally</li>
+<li>export the encryption key one the machine where the deployemnt scripts will be executed ie (your local machine or jenkins nodes).</li>
 </ul>
-</li>
+<h2 id="swarm-orca-deployment">Swarm Orca Deployment<a class="headerlink" href="#swarm-orca-deployment" title="Permanent link">&para;</a></h2>
+<h3 id="start-deployment">Start deployment<a class="headerlink" href="#start-deployment" title="Permanent link">&para;</a></h3>
+<ul>
+<li>You can use the following commands to setup and deploy locally</li>
 </ul>
 <pre class="highlight"><code class="language-sh"># setup and deploy, it will created dbs, and run seeds
 $~&gt; bundle exec cap ${stage} deploy:development_setup</code></pre>
 
-<pre class="highlight"><code>- Build custom docker images manually
-</code></pre>
-
+<ul>
+<li>Build custom docker images manually</li>
+</ul>
 <pre class="highlight"><code class="language-sh">$~&gt; bundle exec cap ${stage} deploy:build_images</code></pre>
 
-<pre class="highlight"><code>- Deploy individual stacks
-</code></pre>
-
+<ul>
+<li>Deploy individual stacks</li>
+</ul>
 <pre class="highlight"><code class="language-sh">$~&gt; bundle exec cap ${stage} deploy:${stack}</code></pre>
 
-<pre class="highlight"><code>- Deployment with specific fork
-</code></pre>
-
-<p>Swarm orca defines a defult for for deployment. The fork value can be changed by setting the ENV 'FORK'.</p>
+<ul>
+<li>Deployment with specific fork
+Swarm orca defines a defult for for deployment. The fork value can be changed by setting the ENV 'FORK'.</li>
+</ul>
 <pre class="highlight"><code class="language-sh">$~&gt; FORK=${forkName}  bundle exec cap ${stage} deploy:${stack}</code></pre>
 
 <p>Example deploying with fork 'shihadeh'</p>
@@ -939,11 +963,10 @@ $~&gt; bundle exec cap ${stage} deploy:development_setup</code></pre>
 </ul>
 <pre class="highlight"><code class="language-sh">$~&gt; bundle exec cap ${stage} deploy:all</code></pre>
 
-<pre class="highlight"><code>- Recreate DBS for an environment
-Use deploy:recreate_all_dbs task to return an envornment(stage) databases to the initial stage
-Example recreating DBS for an environment(stage)
-</code></pre>
-
+<ul>
+<li>Recreate DBS for an environment
+Use deploy:recreate_all_dbs task to return an envornment(stage) databases to the initial stage</li>
+</ul>
 <pre class="highlight"><code class="language-sh">$~&gt; bundle exec cap ${stage} deploy:recreate_all_dbs</code></pre>
 
 <ul>
@@ -952,10 +975,8 @@ Example recreating DBS for an environment(stage)
 <pre class="highlight"><code class="language-sh">$~&gt; ORCA_DEBUG=true bundle exec cap ${stage} ${task}</code></pre>
 
 <ul>
-<li>Deployment without cleaning up old docker images.<ul>
-<li>Add the <code>PRUNE=false</code> variable to your deployment command.</li>
-</ul>
-</li>
+<li>Deployment without cleaning up old docker images.
+Add the <code>PRUNE=false</code> variable to your deployment command.</li>
 </ul>
 <pre class="highlight"><code class="language-sh">$~&gt; PRUNE=false bundle exec cap local deploy:auto</code></pre>
 
