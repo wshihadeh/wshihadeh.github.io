@@ -66,8 +66,8 @@ nav:
   - 'Welcome': 'index.md'
   - 'Ruby Gems':
       - 'Swarm Orca' : 'ruby-gems/Orca.md'
-      #- 'RabbitMQ Client' : 'ruby-gems/RabbitMQ.md'
-      #- 'DelayedJob Metrics' : 'ruby-gems/DelayedJobMetrics.md'
-      #- 'DeepHealthCheck': 'ruby-gems/DeepHealthCheck.md'
+      - 'RabbitMQ Client' : 'ruby-gems/RabbitMQ.md'
+      - 'DelayedJob Metrics' : 'ruby-gems/DelayedJobMetrics.md'
+      - 'DeepHealthCheck': 'ruby-gems/DeepHealthCheck.md'
   #- 'Blog Posts':
   #- 'PoC':

@@ -1,7 +1,9 @@
 # Swarm Orca
+
 This gem includes a set of capistrano recipes used to deploy services and rails applications to a swarm cluster.
 
 ## Command Line
+
 ### Install
 
 ```sh
@@ -30,6 +32,7 @@ end
 ```
 
 Then run
+
 ```sh
 $~> bundle install
 ```
@@ -41,7 +44,6 @@ $~> bundle install
 ```ruby
 require "swarm_orca"
 ```
-
 
 - Add the following to your `deploy.rb`.
 
@@ -62,6 +64,7 @@ require "capistrano/swarm_orca/docker"
 ```
 
 ## Define your services and application
+
 Swarm orca define the managed services and applications in `deploy.rb`.
 
 - service_stacks: array include the services stack names. That do not need custome docker images and do not have a database.
@@ -78,6 +81,7 @@ set (:db_apps_stacks_mapping), {
 - elasticsearch_apps: application names that are connected to elasticsearch.
 
 ## Define your services and applications configurations
+
 Swarm Orca manage the stacks and application configurations in the stage files under `capistrano/config/deploy`
 
 - each stack must have the `stack_name` to define the stack name.
@@ -100,58 +104,65 @@ set :mysql,
 ## Application Seeds
 
 - Define your application seeds
-  - By default Swarm orca gem will execute `rake db:seed` to run the seeds for your defined applications.
-  - In Addition, Swarm orca gem support custom seeds. To implement a custom seed in your Orca please follow these instruction.
-    - Create a new folder in the root directory and call it "seeds".
-    - Add a seed file for each of your application. The file name should follow this schema "${application_name}.rb"
-    - Example of seeds for backend application
+    - By default Swarm orca gem will execute `rake db:seed` to run the seeds for your defined applications.
+    - In Addition, Swarm orca gem support custom seeds. To implement a custom seed in your Orca please follow these instruction.
+        - Create a new folder in the root directory and call it "seeds".
+        - Add a seed file for each of your application. The file name should follow this schema "${application_name}.rb"
+        - Example of seeds for backend application
 
-    ```ruby
-    cat seeds/backend.rb
-    Rails.application.load_tasks
-    Rake::Task['roles:reseed_defaults'].execute
-    ```
+```ruby
+cat seeds/backend.rb
+Rails.application.load_tasks
+Rake::Task['roles:reseed_defaults'].execute
+```
 
 ## Application Database migrations
 
 - Define migrations, seeds and elasticsearch reindex.
-  - To be able to execute migrations, seeds and elasticsearch reindex, you need to explicitly define the roles on your stage.
-  - Example: our backend stack is using db and elasticsearch
+    - To be able to execute migrations, seeds and elasticsearch reindex, you need to explicitly define the roles on your stage.
+    - Example: our backend stack is using db and elasticsearch
 
-  ```ruby
-  server "${server}", user: "deploy", roles: %w{${stack}_db ${stack}_reindex}
-  server "${server}", user: "deploy", roles: %w{backend_db backend_reindex}
-  ```
+```ruby
+server "${server}", user: "deploy", roles: %w{${stack}_db ${stack}_reindex}
+server "${server}", user: "deploy", roles: %w{backend_db backend_reindex}
+```
 
 ## Deployment Strategy
+
 By default capistrano supports only git deployment strategy to support xopy strategy do the following:
 
 - Apply these changes to your `Capfile`
-   ```diff
-     -require "capistrano/scm/git"
-     +scm = ENV.fetch('SCM', 'git')
-     +require "capistrano/scm/#{scm}"
-     +install_plugin Module.const_get("Capistrano::SCM::#{scm.capitalize}")
-   ```
+
+```diff
+  -require "capistrano/scm/git"
+  +scm = ENV.fetch('SCM', 'git')
+  +require "capistrano/scm/#{scm}"
+  +install_plugin Module.const_get("Capistrano::SCM::#{scm.capitalize}")
+```
+
 - To deploy with Copy strategy add "SCM=copy" to the command line.
-  ```sh
-  $~> SCM=copy bundle exec cap ${stage} deploy:${stack}
-  ```
+
+```sh
+$~> SCM=copy bundle exec cap ${stage} deploy:${stack}
+```
 
 ## One Time migrations
 
 - Execute One Time migrations from orca.
-  - Orca generate a rake task for executing one time migrations for each of the defined database application.
-  - These tasks are defined like the following example.
-    ```ruby
-    deploy:otm_${application}[${migration_name}]
-    # deploy:otm_backend[update_referral_bonus_transactions_text]
-    ```
- - The migration task should be defined in the project source code under the name space "one_time_migrations"
+    - Orca generate a rake task for executing one time migrations for each of the defined database application.
+    - These tasks are defined like the following example.
+
+```ruby
+deploy:otm_${application}[${migration_name}]
+# deploy:otm_backend[update_referral_bonus_transactions_text]
+```
+
+- The migration task should be defined in the project source code under the name space "one_time_migrations"
 
 ## Data migrations
+
 To support data migration for individual applications, do the following.
-  - Add a new configuration item with the following pattern "${app_name}_data_migrate" to your stack configurations. The value of the item must be true to switch db:migrate to db:migrate:with_data. See the example below for add migrate with data support to a backend application.
+    - Add a new configuration item with the following pattern "${app_name}_data_migrate" to your stack configurations. The value of the item must be true to switch db:migrate to db:migrate:with_data. See the example below for add migrate with data support to a backend application.
 
 ```ruby
 set :backend, {
@@ -162,15 +173,18 @@ set :backend, {
 ```
 
 ## ERB templates
+
 - Setup Stacks ERB templates
-  - Create an ERB template for each of your stacks. Use the extension "erb" for your stacks.
-    - Example : docker-stack-backend.yml.erb
-  - Add the following line to deploy.rb
-    - set (:docker_erb_templates) { true }
-  - Ensure the all container environment variables are double-qouted
+    - Create an ERB template for each of your stacks. Use the extension "erb" for your stacks.
+        - Example : docker-stack-backend.yml.erb
+    - Add the following line to deploy.rb
+        - set (:docker_erb_templates) { true }
+    - Ensure the all container environment variables are double-qouted
 
 ## Shared Configuration
+
 - To set shared configurations that are available for all stacks, use the following syntax.
+
 ```ruby
   set :shared, {
      global_variable: 'value_123'
@@ -179,12 +193,15 @@ set :backend, {
 
 - To set shared application configurations that are available in all stacks with special key.
 Need to create shared application set like:
+
 ```ruby
   set :backend_shared, {
      environment_label: "staging",
   }
 ```
+
 Add special key to include shared application config to application config
+
 ```ruby
   set :web_backend {
     include_shared_config: 'backend_shared',
@@ -197,55 +214,54 @@ Add special key to include shared application config to application config
 ## Local Deployment
 
 - Support Local Deployment with Swarm Orca
- - To Be able to deploy locally with orca, you need to implement the following changes on your orca project.
-   - Create a local stage with your configs. See below template.
+    - To Be able to deploy locally with orca, you need to implement the following changes on your orca project.
+        - Create a local stage with your configs. See below template.
 
-   ```ruby
-     server "${server}", ENV.fetch('USER', '${user}'),
-     roles: %w{
-       swarm_manager
-     }
-     set (:deploy_to) { "${deploy_to_path}" }
-   ```
+          ```ruby
+            server "${server}", ENV.fetch('USER', '${user}'),
+            roles: %w{
+              swarm_manager
+            }
+            set (:deploy_to) { "${deploy_to_path}" }
+          ```
 
-     - ${server}: Can be replaced by by "localhost", "127.0.0.1" or any domain that include "local" in it.
-     - ${user}: Default it will use the ENV 'USER' value, but if this ENV 'USER' is not defined, you can also defined another/own user.
-     - ${deploy_to_path}: the destination deploy to path.
-     - You mast include at least  "swarm_manager" role.
-  - Example deploying mysql and rabbitMq
+        - ${server}: Can be replaced by by "localhost", "127.0.0.1" or any domain that include "local" in it.
+        - ${user}: Default it will use the ENV 'USER' value, but if this ENV 'USER' is not defined, you can also defined another/own user.
+        - ${deploy_to_path}: the destination deploy to path.
+        - You mast include at least  "swarm_manager" role.
+    - Example deploying mysql and rabbitMq
 
-  ```ruby
-    server "127.0.0.1", ENV.fetch('USER', 'shihadeh'),
-    roles: %w{
-      mysql
-      rabbitmq
-      swarm_manager
-    }
-
-    set (:deploy_to) { "/Users/shihadeh/ggs" }
-    # set the path to the docker command.
-    set (:docker_path) { "" }
-
-    set :mysql, {
-      stack_name: 'mysql',
-      mysql_docker_image: 'mysql',
-      mysql_docker_image_tag: '5.7',
-    }
-
-    set :rabbitmq, {
-      rabbitmq_docker_image: 'rabbitmq',
-      stack_name: 'rabbitmq_fr',
-      rabbitmq_docker_image_tag: '3.6-management',
-      rabbitmq_volume: '/Users/shihadeh/ggs/rmq'
-    }
-  ```
+```ruby
+  server "127.0.0.1", ENV.fetch('USER', 'shihadeh'),
+  roles: %w{
+    mysql
+    rabbitmq
+    swarm_manager
+  }
+  set (:deploy_to) { "/Users/shihadeh/ggs" }
+  # set the path to the docker command.
+  set (:docker_path) { "" }
+  set :mysql, {
+    stack_name: 'mysql',
+    mysql_docker_image: 'mysql',
+    mysql_docker_image_tag: '5.7',
+  }
+  set :rabbitmq, {
+    rabbitmq_docker_image: 'rabbitmq',
+    stack_name: 'rabbitmq_fr',
+    rabbitmq_docker_image_tag: '3.6-management',
+    rabbitmq_volume: '/Users/shihadeh/ggs/rmq'
+  }
+```
 
 ## Encrypted attribute
+
 To support encrypted configuration do the follwing:
 
-  - Create a new encryption key using orc cli.
-  - Use orca cli to encrypt the attributes.
-  - set the encrypted attributes (you must prefix the attribute key with 'encrypted_' ie. `encrypted_cs_database_url`). for instance
+- Create a new encryption key using orc cli.
+- Use orca cli to encrypt the attributes.
+- set the encrypted attributes (you must prefix the attribute key with 'encrypted_' ie. `encrypted_cs_database_url`). for instance
+
   ```ruby
   set :backend,
     stack_name: 'backend',
@@ -254,45 +270,49 @@ To support encrypted configuration do the follwing:
     encrypted_backend_database_url: 'h/UNau5AFvhxDbUkBZbPw6RBJzkTPjIMmWOQ+lQ==',
   ```
 
-  - export the encryption key one the machine where the deployemnt scripts will be executed ie (your local machine or jenkins nodes).
+- export the encryption key one the machine where the deployemnt scripts will be executed ie (your local machine or jenkins nodes).
 
 ## Swarm Orca Deployment
-- Start deployment
-  - You can use the following commands to setup and deploy locally
 
-  ```sh
-  # setup and deploy, it will created dbs, and run seeds
-  $~> bundle exec cap ${stage} deploy:development_setup
-  ```
+### Start deployment
 
-  - Build custom docker images manually
+- You can use the following commands to setup and deploy locally
 
-  ```sh
-  $~> bundle exec cap ${stage} deploy:build_images
-  ```
+```sh
+# setup and deploy, it will created dbs, and run seeds
+$~> bundle exec cap ${stage} deploy:development_setup
+```
 
-  - Deploy individual stacks
+- Build custom docker images manually
 
-  ```sh
-  $~> bundle exec cap ${stage} deploy:${stack}
-  ```
+```sh
+$~> bundle exec cap ${stage} deploy:build_images
+```
 
-  - Deployment with specific fork
+- Deploy individual stacks
 
-  Swarm orca defines a defult for for deployment. The fork value can be changed by setting the ENV 'FORK'.
-  ```sh
-  $~> FORK=${forkName}  bundle exec cap ${stage} deploy:${stack}
-  ```
-  Example deploying with fork 'shihadeh'
-  ```sh
-  $~> FORK=shihadeh bundle exec cap ${stage} deploy:${stack}
-  ```
+```sh
+$~> bundle exec cap ${stage} deploy:${stack}
+```
+
+- Deployment with specific fork
+Swarm orca defines a defult for for deployment. The fork value can be changed by setting the ENV 'FORK'.
+
+```sh
+$~> FORK=${forkName}  bundle exec cap ${stage} deploy:${stack}
+```
+
+Example deploying with fork 'shihadeh'
+
+```sh
+$~> FORK=shihadeh bundle exec cap ${stage} deploy:${stack}
+```
 
 - Deploy more than one stack
 
-  ```sh
-  $~> DEPLOYED_STACKS="mysql rabbitmq" bundle exec cap ${stage} deploy:auto
-  ```
+```sh
+$~> DEPLOYED_STACKS="mysql rabbitmq" bundle exec cap ${stage} deploy:auto
+```
 
 - Deploy without building docker images.
 
@@ -302,35 +322,34 @@ $~> BUILD_IMAGE=false bundle exec cap ${stage} deploy:${stack}
 
 - Deploy all
 
-  ```sh
-  $~> bundle exec cap ${stage} deploy:all
-  ```
-  - Recreate DBS for an environment
-    Use deploy:recreate_all_dbs task to return an envornment(stage) databases to the initial stage
-    Example recreating DBS for an environment(stage)
-  ```sh
-  $~> bundle exec cap ${stage} deploy:recreate_all_dbs
-  ```
+```sh
+$~> bundle exec cap ${stage} deploy:all
+```
+
+- Recreate DBS for an environment
+Use deploy:recreate_all_dbs task to return an envornment(stage) databases to the initial stage
+
+```sh
+$~> bundle exec cap ${stage} deploy:recreate_all_dbs
+```
 
 - Deploy Debug Mode
-  ```sh
-  $~> ORCA_DEBUG=true bundle exec cap ${stage} ${task}
-  ```
+
+```sh
+$~> ORCA_DEBUG=true bundle exec cap ${stage} ${task}
+```
 
 - Deployment without cleaning up old docker images.
-  - Add the `PRUNE=false` variable to your deployment command.
-  ```
-    PRUNE=false bundle exec cap local deploy:auto
-  ```
+Add the `PRUNE=false` variable to your deployment command.
+
+```sh
+$~> PRUNE=false bundle exec cap local deploy:auto
+```
 
 ## Swarm Orca special roles
-  - swarm_manager : Nodes with this command will be used to execute deployment commands. You only need one node this role per stage.
-  - swarm_node: Swarm Orca will try to cleanup old images or containers on the nodes with this role.
-  - stack: To be able to deploy service X to a given cluster, you must to include the X as a role for a manager node in that cluster.
-  - #{stack}_db: This role indeicate where the database migration will be executed.
-  - #{stack}_reindex: This role indeicate where the elasticsearch reindexing will be executed.
 
-
-
-
-
+- swarm_manager : Nodes with this command will be used to execute deployment commands. You only need one node this role per stage.
+- swarm_node: Swarm Orca will try to cleanup old images or containers on the nodes with this role.
+- stack: To be able to deploy service X to a given cluster, you must to include the X as a role for a manager node in that cluster.
+- `#{stack}_db`: This role indeicate where the database migration will be executed.
+- `#{stack}_reindex`: This role indeicate where the elasticsearch reindexing will be executed.

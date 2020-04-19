@@ -3,7 +3,6 @@
 # This Makefile contains all targets related to the documentation
 #######
 
-DOCS_VERIFY_SKIP ?= false
 DOCS_LINT_SKIP ?= false
 
 DOCS_BUILD_IMAGE ?= wshihadeh-docs
@@ -16,7 +15,7 @@ DOCKER_RUN_DOC_MOUNTS := -v $(CURDIR):/mkdocs
 DOCKER_RUN_DOC_OPTS := --rm $(DOCKER_RUN_DOC_MOUNTS) -p $(DOCKER_RUN_DOC_PORT):8000
 
 # Default: generates the documentation into $(SITE_DIR)
-docs: docs-clean docs-image docs-lint docs-build docs-verify
+docs: docs-clean docs-image docs-lint docs-build
 
 # Writer Mode: build and serve docs on http://localhost:8000 with livereload
 docs-serve: docs-image
@@ -30,14 +29,6 @@ docs-build: docs-image
 	docker run $(DOCKER_RUN_DOC_OPTS) $(DOCS_BUILD_IMAGE) sh -c "mkdocs build \
 		&& chown -R $(shell id -u):$(shell id -g) ./site"
 
-docs-verify: docs-build
-	@if [ "$(DOCS_VERIFY_SKIP)" != "true" ]; then \
-		docker build -t $(DOCS_CHECK_IMAGE) -f check.Dockerfile ./; \
-		docker run --rm -v $(CURDIR):/app $(DOCS_CHECK_IMAGE) /verify.sh; \
-	else \
-		echo "DOCS_VERIFY_SKIP is true: no verification done."; \
-	fi
-
 docs-lint:
 	@if [ "$(DOCS_LINT_SKIP)" != "true" ]; then \
 		docker build -t $(DOCS_CHECK_IMAGE) -f check.Dockerfile ./ && \
@@ -49,4 +40,4 @@ docs-lint:
 docs-clean:
 	rm -rf $(SITE_DIR)
 
-.PHONY: all docs-verify docs docs-clean docs-build docs-lint
+.PHONY: all docs docs-clean docs-build docs-lint
