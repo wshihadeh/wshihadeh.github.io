@@ -964,12 +964,8 @@ Example recreating DBS for an environment(stage)
 <li>swarm_manager : Nodes with this command will be used to execute deployment commands. You only need one node this role per stage.</li>
 <li>swarm_node: Swarm Orca will try to cleanup old images or containers on the nodes with this role.</li>
 <li>stack: To be able to deploy service X to a given cluster, you must to include the X as a role for a manager node in that cluster.</li>
-<li>
-<h1 id="stack_db-this-role-indeicate-where-the-database-migration-will-be-executed">{stack}_db: This role indeicate where the database migration will be executed.<a class="headerlink" href="#stack_db-this-role-indeicate-where-the-database-migration-will-be-executed" title="Permanent link">&para;</a></h1>
-</li>
-<li>
-<h1 id="stack_reindex-this-role-indeicate-where-the-elasticsearch-reindexing-will-be-executed">{stack}_reindex: This role indeicate where the elasticsearch reindexing will be executed.<a class="headerlink" href="#stack_reindex-this-role-indeicate-where-the-elasticsearch-reindexing-will-be-executed" title="Permanent link">&para;</a></h1>
-</li>
+<li><code>#{stack}_db</code>: This role indeicate where the database migration will be executed.</li>
+<li><code>#{stack}_reindex</code>: This role indeicate where the elasticsearch reindexing will be executed.</li>
 </ul>
                 
                   
