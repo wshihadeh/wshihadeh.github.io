@@ -834,12 +834,10 @@ Need to create shared application set like:</li>
 <h2 id="local-deployment">Local Deployment<a class="headerlink" href="#local-deployment" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Support Local Deployment with Swarm Orca<ul>
-<li>To Be able to deploy locally with orca, you need to implement the following changes on your orca project.<ul>
+<li>
+<p>To Be able to deploy locally with orca, you need to implement the following changes on your orca project.</p>
+<ul>
 <li>Create a local stage with your configs. See below template.</li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 <pre class="highlight"><code class="language-ruby">  server "${server}", ENV.fetch('USER', '${user}'),
   roles: %w{
@@ -847,13 +845,19 @@ Need to create shared application set like:</li>
   }
   set (:deploy_to) { "${deploy_to_path}" }</code></pre>
 
-<pre class="highlight"><code>    - ${server}: Can be replaced by by "localhost", "127.0.0.1" or any domain that include "local" in it.
-    - ${user}: Default it will use the ENV 'USER' value, but if this ENV 'USER' is not defined, you can also defined another/own user.
-    - ${deploy_to_path}: the destination deploy to path.
-    - You mast include at least  "swarm_manager" role.
-- Example deploying mysql and rabbitMq
-</code></pre>
-
+<ul>
+<li>${server}: Can be replaced by by "localhost", "127.0.0.1" or any domain that include "local" in it.</li>
+<li>${user}: Default it will use the ENV 'USER' value, but if this ENV 'USER' is not defined, you can also defined another/own user.</li>
+<li>${deploy_to_path}: the destination deploy to path.</li>
+<li>You mast include at least  "swarm_manager" role.<ul>
+<li>Example deploying mysql and rabbitMq</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <pre class="highlight"><code class="language-ruby">  server "127.0.0.1", ENV.fetch('USER', 'shihadeh'),
   roles: %w{
     mysql
