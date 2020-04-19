@@ -1,4 +1,4 @@
-name: CI-MASTER
+name: CI-MASTER-DEPLOY
 
 on:
   push:

@@ -1,4 +1,4 @@
 
 # Welcome
 
-This is the main page soso
+This is the main page for the repristory
