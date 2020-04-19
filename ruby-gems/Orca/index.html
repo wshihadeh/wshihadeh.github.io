@@ -728,9 +728,7 @@ require "capistrano/swarm_orca/docker"
 </ul>
 <h2 id="application-seeds">Application Seeds<a class="headerlink" href="#application-seeds" title="Permanent link">&para;</a></h2>
 <ul>
-<li>
-<p>Define your application seeds</p>
-<ul>
+<li>Define your application seeds<ul>
 <li>By default Swarm orca gem will execute <code>rake db:seed</code> to run the seeds for your defined applications.</li>
 <li>In Addition, Swarm orca gem support custom seeds. To implement a custom seed in your Orca please follow these instruction.<ul>
 <li>Create a new folder in the root directory and call it "seeds".</li>
@@ -739,12 +737,12 @@ require "capistrano/swarm_orca/docker"
 </ul>
 </li>
 </ul>
+</li>
+</ul>
 <pre class="highlight"><code class="language-ruby">cat seeds/backend.rb
 Rails.application.load_tasks
 Rake::Task['roles:reseed_defaults'].execute</code></pre>
 
-</li>
-</ul>
 <h2 id="application-database-migrations">Application Database migrations<a class="headerlink" href="#application-database-migrations" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Define migrations, seeds and elasticsearch reindex.<ul>
@@ -773,19 +771,17 @@ server "${server}", user: "deploy", roles: %w{backend_db backend_reindex}</code>
 
 <h2 id="one-time-migrations">One Time migrations<a class="headerlink" href="#one-time-migrations" title="Permanent link">&para;</a></h2>
 <ul>
-<li>
-<p>Execute One Time migrations from orca.</p>
-<ul>
+<li>Execute One Time migrations from orca.<ul>
 <li>Orca generate a rake task for executing one time migrations for each of the defined database application.</li>
 <li>These tasks are defined like the following example.</li>
+</ul>
+</li>
 </ul>
 <pre class="highlight"><code class="language-ruby">deploy:otm_${application}[${migration_name}]
 # deploy:otm_backend[update_referral_bonus_transactions_text]</code></pre>
 
 <ul>
 <li>The migration task should be defined in the project source code under the name space "one_time_migrations"</li>
-</ul>
-</li>
 </ul>
 <h2 id="data-migrations">Data migrations<a class="headerlink" href="#data-migrations" title="Permanent link">&para;</a></h2>
 <p>To support data migration for individual applications, do the following.
@@ -864,17 +860,14 @@ Need to create shared application set like:</li>
     rabbitmq
     swarm_manager
   }
-
   set (:deploy_to) { "/Users/shihadeh/ggs" }
   # set the path to the docker command.
   set (:docker_path) { "" }
-
   set :mysql, {
     stack_name: 'mysql',
     mysql_docker_image: 'mysql',
     mysql_docker_image_tag: '5.7',
   }
-
   set :rabbitmq, {
     rabbitmq_docker_image: 'rabbitmq',
     stack_name: 'rabbitmq_fr',
