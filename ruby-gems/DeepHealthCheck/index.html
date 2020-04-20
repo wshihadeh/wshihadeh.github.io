@@ -95,7 +95,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#health" tabindex="1" class="md-skip">
+      <a href="#deeph-ealth-check" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -309,9 +309,45 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        DeepHealthCheck
+      </label>
+    
     <a href="./" title="DeepHealthCheck" class="md-nav__link md-nav__link--active">
       DeepHealthCheck
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    Getting Started
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protect-health-check-endpoints-using-htauth-credentials" class="md-nav__link">
+    Protect Health Check endpoints using htauth credentials.
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -338,6 +374,29 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    Getting Started
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protect-health-check-endpoints-using-htauth-credentials" class="md-nav__link">
+    Protect Health Check endpoints using htauth credentials.
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -351,7 +410,47 @@
                   <a href="https://github.com/wshihadeh/wshihadeh.github.io/edit/source/docs/content/ruby-gems/DeepHealthCheck.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="health">hEALTH<a class="headerlink" href="#health" title="Permanent link">&para;</a></h1>
+                <h1 id="deeph-ealth-check">DeepH ealth Check<a class="headerlink" href="#deeph-ealth-check" title="Permanent link">&para;</a></h1>
+<p><a href="https://badge.fury.io/rb/deep_health_check"><img alt="Gem Version" src="https://badge.fury.io/rb/deep_health_check.svg" /></a>
+<a href="http://opensource.org/licenses/MIT"><img alt="License" src="https://img.shields.io/badge/license-MIT-green.svg" /></a>
+<a href="https://depfu.com/github/wshihadeh/deep_health_check?project_id=10389"><img alt="Depfu" src="https://badges.depfu.com/badges/b29d275b0743e77163a813ac51251be9/count.svg" /></a>
+<img alt="Codecov" src="https://img.shields.io/codecov/c/github/wshihadeh/deep_health_check" /></p>
+<p>A simple Health status API</p>
+<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
+<p>Install gem</p>
+<pre class="highlight"><code class="language-ruby"> # Gemfile
+ gem 'deep_health_check'</code></pre>
+
+<p>Add middleware before Rails::Rack::Logger to prevent false positive response
+if other middleware fails when database is down for example ActiveRecord::QueryCache</p>
+<pre class="highlight"><code class="language-ruby"> # config/application.rb
+ config.middleware.insert_after "Rails::Rack::Logger", DeepHealthCheck::MiddlewareHealthCheck</code></pre>
+
+<h2 id="protect-health-check-endpoints-using-htauth-credentials">Protect Health Check endpoints using htauth credentials.<a class="headerlink" href="#protect-health-check-endpoints-using-htauth-credentials" title="Permanent link">&para;</a></h2>
+<p>Health check middleware expose the following endpoints</p>
+<ul>
+<li>/health</li>
+<li>/db_health</li>
+<li>
+<p>/tcp_dependencies_health</p>
+<ul>
+<li>dependencies must follow the below format and can be coonfigured using envioronment varables such as:</li>
+</ul>
+<pre class="highlight"><code class="language-sh"># TCP_DEPENDENCY_${00..99}=${ip_or_host}:${port}
+TCP_DEPENDENCY_00=127.0.0.0:8080</code></pre>
+
+</li>
+<li>
+<p>/http_dependencies_health</p>
+<ul>
+<li>dependencies must be valid http url and can be coonfigured using envioronment varables such as:</li>
+</ul>
+<pre class="highlight"><code class="language-sh"># HTTP_DEPENDENCY_${00..99}=${ip_or_host}:${port}
+HTTP_DEPENDENCY_00=http://127.0.0.0:8080/health</code></pre>
+
+</li>
+</ul>
+<p>Some of these endpoints provide information about the database and system status. By Default these endpoints are not protected and are accessible publicly. To reduce the security risk introduced by exposing these endpoints, We can protect them using htauth credentials. The following page provide all the necessary steps needed to achieve this task.</p>
                 
                   
                 
