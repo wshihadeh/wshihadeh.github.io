@@ -46,7 +46,11 @@ DELAYED_JOB_METRICS_ENNDPOINT=/my_endpoint
 
 - Setup basic auth
 
-```ruby
-HTAUTH_METRICS_USER=user
-HTAUTH_METRICS_PASSWORD=secret
-```
+!!! tip "Basic Auth Configurations"
+
+    Use the below environment variables to setup the basic authentication for the metrics endpiint
+    
+    ```ruby
+    HTAUTH_METRICS_USER=user
+    HTAUTH_METRICS_PASSWORD=secret
+    ```
