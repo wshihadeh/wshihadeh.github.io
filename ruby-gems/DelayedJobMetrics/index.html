@@ -95,7 +95,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#delayedjob" tabindex="1" class="md-skip">
+      <a href="#delayedjobmetrics" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -297,9 +297,45 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        DelayedJob Metrics
+      </label>
+    
     <a href="./" title="DelayedJob Metrics" class="md-nav__link md-nav__link--active">
       DelayedJob Metrics
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-configurations" class="md-nav__link">
+    Usage &amp; Configurations
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -338,6 +374,29 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-configurations" class="md-nav__link">
+    Usage &amp; Configurations
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -351,7 +410,39 @@
                   <a href="https://github.com/wshihadeh/wshihadeh.github.io/edit/source/docs/content/ruby-gems/DelayedJobMetrics.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="delayedjob">dELAYEDjOB<a class="headerlink" href="#delayedjob" title="Permanent link">&para;</a></h1>
+                <h1 id="delayedjobmetrics">DelayedJobMetrics<a class="headerlink" href="#delayedjobmetrics" title="Permanent link">&para;</a></h1>
+<p>Expose Prometheus Metrics for Delayed Jobs.</p>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<p>Add this line to your application's Gemfile:</p>
+<pre class="highlight"><code class="language-ruby">gem 'delayed_job_metrics'</code></pre>
+
+<p>And then execute:</p>
+<pre class="highlight"><code class="language-sh">$~&gt; bundle install</code></pre>
+
+<p>Or install it yourself as:</p>
+<pre class="highlight"><code class="language-sh">$~&gt; gem install delayed_job_metrics</code></pre>
+
+<h2 id="usage-configurations">Usage &amp; Configurations<a class="headerlink" href="#usage-configurations" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Enable metrics middelware</li>
+</ul>
+<pre class="highlight"><code class="language-ruby">DELAYED_JOB_METRICS_ENABLED=true</code></pre>
+
+<ul>
+<li>Start Rails server and start scraping metrics</li>
+</ul>
+<pre class="highlight"><code class="language-sh">$~&gt; curl -fs http://127.0.0.1:3000/metrics</code></pre>
+
+<ul>
+<li>Overwrite the default metrics endpoint</li>
+</ul>
+<pre class="highlight"><code class="language-ruby">DELAYED_JOB_METRICS_ENNDPOINT=/my_endpoint</code></pre>
+
+<ul>
+<li>Setup basic auth</li>
+</ul>
+<pre class="highlight"><code class="language-ruby">HTAUTH_METRICS_USER=user
+HTAUTH_METRICS_PASSWORD=secret</code></pre>
                 
                   
                 
