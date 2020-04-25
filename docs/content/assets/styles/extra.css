@@ -61,3 +61,7 @@ p.subtitle {
     margin: 0 4px 0.25em -20px;
     vertical-align: middle;
 }
+
+.logoImage{
+ float: left;
+}
