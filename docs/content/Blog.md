@@ -30,6 +30,7 @@
     * [x] [Monitoring Traefik With Grafana](https://medium.com/@wshihadeh/monitoring-traefik-with-grafana-1d037af5b952)
 
 ??? "Applicaion Logs && Centralized logging"
+    * [x] [Parse Ruby on Rails logs with FluentD](https://medium.com/@wshihadeh/parse-ruby-on-rails-logs-with-fluentd-9fca4df6ebfe)
     * [x] [Centralize Your Docker Logging With FluentD](https://medium.com/@wshihadeh/centralize-your-docker-logging-with-fluentd-a2b7e0a379ce)
     * [x] [How to Correlate Rails Requests to Database Logs](https://medium.com/@wshihadeh/correlate-rails-requests-to-database-logs-1e998228fa43)
     * [x] [Centralize Your Docker Logging With Syslog](https://medium.com/@wshihadeh/docker-centralized-logging-with-syslog-97b9c147bd30)
