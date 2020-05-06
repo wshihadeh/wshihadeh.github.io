@@ -28,6 +28,7 @@
     * [x] [Prevent DDoS Attacks with Traefik 2](https://medium.com/@wshihadeh/prevent-ddos-attacks-with-traefik-2-44fb32eeac4f)
     * [x] [Integrate Traefik 2.1 Reverse Proxy with Docker Swarm Services](https://medium.com/@wshihadeh/traefik-2-1-as-a-reverse-proxy-c9e274da0a32)
     * [x] [Monitoring Traefik With Grafana](https://medium.com/@wshihadeh/monitoring-traefik-with-grafana-1d037af5b952)
+    * [x] [Traefik 2 and Open Tracing](https://medium.com/@wshihadeh/traefik-2-and-open-tracing-da5c483486e3)
 
 ??? "Applicaion Logs && Centralized logging"
     * [x] [Parse Ruby on Rails logs with FluentD](https://medium.com/@wshihadeh/parse-ruby-on-rails-logs-with-fluentd-9fca4df6ebfe)
@@ -36,6 +37,7 @@
     * [x] [Centralize Your Docker Logging With Syslog](https://medium.com/@wshihadeh/docker-centralized-logging-with-syslog-97b9c147bd30)
     * [x] [Collect and Store Rails Console Logs](https://medium.com/@wshihadeh/collect-and-store-rails-console-logs-c1982781c28d)
     * [x] [Ruby on Rails Single Line Logging](https://medium.com/@wshihadeh/ruby-on-rails-single-line-logging-5a76852de1d2)
+    * [x] [Seven Tips For Using Fluentd For Logs Collection](https://medium.com/@wshihadeh/7-tips-for-using-fluentd-for-logs-collection-c9613f7a387c)
 
 ??? "Monitoring"
     * [x] [Monitor Delayed Jobs with Prometheus and Grafana 2](https://medium.com/@wshihadeh/monitor-delayed-jobs-with-prometheus-and-grafana-2-ccde39c5242e)
