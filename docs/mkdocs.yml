@@ -65,6 +65,8 @@ markdown_extensions:
 nav:
   - 'Welcome': 'index.md'
   - 'Blog Posts': 'Blog.md'
+  - 'GitHub Acrions':
+      - 'Docker Deployment' : 'actions/Docker-Deployment.md'
   - 'Ruby Gems':
       - 'Swarm Orca' : 'ruby-gems/Orca.md'
       - 'RabbitMQ Client' : 'ruby-gems/RabbitMQ.md'
