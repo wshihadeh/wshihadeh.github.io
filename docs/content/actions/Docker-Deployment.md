@@ -6,7 +6,6 @@ A [GitHub Action](https://github.com/marketplace/actions/docker-deployment) that
 
 Below is a brief examples on how the action can be used:
 
-
 ```yaml tab="Swarm"
 - name: Deploy to Docker swarm
   uses: wshihadeh/docker-deployment-action@v1
@@ -59,7 +58,6 @@ Below is a brief examples on how the action can be used:
     args: my_applicaion
 ```
 
-
 ## Input Configurations
 
 Below are all of the supported inputs. Some inputs are considered sensitive information and it should be stored as secrets.
@@ -70,7 +68,6 @@ Arguments to pass to the deployment command either  `docker`  or `docker-compose
 
 - `docker stack deploy --compose-file $FILE --log-level debug --host $HOST`
 - `docker-compose -f $INPUT_STACK_FILE_NAME`
-
 
 ### `remote_docker_host`
 
@@ -85,14 +82,23 @@ Remote Docker SSH public key.
 SSH private key used to connect to the docker host
 
 ### `deployment_mode`
+
 Deployment mode either docker-swarm or docker-compose. Default is docker-compose.
+
 ### `copy_stack_file`
+
 Copy stack file to remote server and deploy from the server. Default is false.
+
 ### `deploy_path`
+
 The path where the stack files will be copied to. Default ~/docker-deployment.
+
 ### `stack_file_name`
+
 Docker stack file used. Default is docker-compose.yaml
+
 ### `keep_files`
+
 Number of the files to be kept on the server. Default is 3.
 
 ## License
