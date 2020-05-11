@@ -26,6 +26,9 @@ Below is a brief examples on how the action can be used:
     ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
     deployment_mode: docker-compose
     args: up -d
+    pre_deployment_command_args: 'bundle exec rake db:migrate'
+    docker_prune: 'true'
+    pull_images_first: 'true'
 ```
 
 ```yaml tab="Compose with copy"
@@ -41,6 +44,8 @@ Below is a brief examples on how the action can be used:
     stack_file_name: docker-compose.yaml
     keep_files: 5
     args: up -d
+    docker_prune: 'false'
+    pull_images_first: 'false'
 ```
 
 ```yaml tab="Swarm with copy"
@@ -100,6 +105,18 @@ Docker stack file used. Default is docker-compose.yaml
 ### `keep_files`
 
 Number of the files to be kept on the server. Default is 3.
+
+### `docker_prune`
+
+A boolean input to trigger docker prune command.
+
+### `pre_deployment_command_args`
+
+The args for the pre deploument command. Applicable only for docker-compose.
+
+### `pull_images_first`
+
+Pull docker images before deploying. Applicable only for docker-compose.
 
 ## License
 
