@@ -374,6 +374,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#docker_prune" class="md-nav__link">
+    docker_prune
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre_deployment_command_args" class="md-nav__link">
+    pre_deployment_command_args
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pull_images_first" class="md-nav__link">
+    pull_images_first
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -572,6 +593,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#docker_prune" class="md-nav__link">
+    docker_prune
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre_deployment_command_args" class="md-nav__link">
+    pre_deployment_command_args
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pull_images_first" class="md-nav__link">
+    pull_images_first
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -627,7 +669,10 @@
     ssh_private_key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
     ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
     deployment_mode: docker-compose
-    args: up -d</code></pre></div>
+    args: up -d
+    pre_deployment_command_args: 'bundle exec rake db:migrate'
+    docker_prune: 'true'
+    pull_images_first: 'true'</code></pre></div>
 <input name="__tabs_1" type="radio" id="__tab_1_2" />
 <label for="__tab_1_2">Compose with copy</label>
 <div class="superfences-content"><pre class="highlight"><code class="language-yaml">- name: Deploy to Docker Host
@@ -641,7 +686,9 @@
     deploy_path: /root/my-deployment
     stack_file_name: docker-compose.yaml
     keep_files: 5
-    args: up -d</code></pre></div>
+    args: up -d
+    docker_prune: 'false'
+    pull_images_first: 'false'</code></pre></div>
 <input name="__tabs_1" type="radio" id="__tab_1_3" />
 <label for="__tab_1_3">Swarm with copy</label>
 <div class="superfences-content"><pre class="highlight"><code class="language-yaml">- name: Deploy to Docker swarm
@@ -681,6 +728,12 @@
 <p>Docker stack file used. Default is docker-compose.yaml</p>
 <h3 id="keep_files"><code>keep_files</code><a class="headerlink" href="#keep_files" title="Permanent link">&para;</a></h3>
 <p>Number of the files to be kept on the server. Default is 3.</p>
+<h3 id="docker_prune"><code>docker_prune</code><a class="headerlink" href="#docker_prune" title="Permanent link">&para;</a></h3>
+<p>A boolean input to trigger docker prune command.</p>
+<h3 id="pre_deployment_command_args"><code>pre_deployment_command_args</code><a class="headerlink" href="#pre_deployment_command_args" title="Permanent link">&para;</a></h3>
+<p>The args for the pre deploument command. Applicable only for docker-compose.</p>
+<h3 id="pull_images_first"><code>pull_images_first</code><a class="headerlink" href="#pull_images_first" title="Permanent link">&para;</a></h3>
+<p>Pull docker images before deploying. Applicable only for docker-compose.</p>
 <h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
 <p>This project is licensed under the MIT license. See the <a href="LICENSE">LICENSE</a> file for details.</p>
                 
