@@ -16,12 +16,7 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://wshihadeh.github.io/ruby-gems/Orca/</loc>
-     <lastmod>2020-06-24</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://wshihadeh.github.io/ruby-gems/RabbitMQ/</loc>
+     <loc>https://wshihadeh.github.io/ruby-gems/DeepHealthCheck/</loc>
      <lastmod>2020-06-24</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -31,7 +26,37 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://wshihadeh.github.io/ruby-gems/DeepHealthCheck/</loc>
+     <loc></loc>
+     
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc></loc>
+     
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc></loc>
+     
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc></loc>
+     
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc></loc>
+     
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://wshihadeh.github.io/ruby-gems/RabbitMQ/</loc>
+     <lastmod>2020-06-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://wshihadeh.github.io/ruby-gems/Orca/</loc>
      <lastmod>2020-06-24</lastmod>
      <changefreq>daily</changefreq>
     </url>
