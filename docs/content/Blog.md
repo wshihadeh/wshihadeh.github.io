@@ -1,6 +1,7 @@
 # Blog Posts
 
 ??? "Software Enginnering"
+    * [x] [5 Risks That Should Be Avoided in Software Projects](https://medium.com/@wshihadeh/five-risks-that-should-be-avoided-for-software-projects-d4609b1cba39)
     * [x] [Automating Release cycle activities](https://medium.com/@wshihadeh/automating-release-cycle-activities-56046398a38b)
     * [x] [Automate Unit Tests Coverage Reports and Dependency Updates for Your Repositories.](https://medium.com/@wshihadeh/automate-unit-tests-coverage-reports-and-dependency-updates-for-your-repositories-41be1b858eb3)
     * [x] [Tips for Implementing a Software Release Process](https://medium.com/@wshihadeh/tips-for-implementing-a-software-release-process-8551db21fe85)
@@ -12,6 +13,7 @@
 
 
 ??? "Kubernetes"
+    * [x] [How to Migrate From Docker Compose to Kubernetes](https://medium.com/@wshihadeh/how-to-migrate-from-docker-compose-to-kubernetes-b57eb229beb2)
     * [x] [Resource Limits on Kubernetes](https://medium.com/@wshihadeh/resource-limits-on-kubernetes-c0f7e7500ab1)
     * [x] [Helm Chart Wait for All Dependencies Before Starting Kubernetes Pods](https://medium.com/@wshihadeh/helm-chart-wait-for-all-dependencies-before-starting-kubernetes-pods-cc0a3ddbf02b)
 
@@ -25,6 +27,7 @@
 
 
 ??? "Traefik"
+    * [x] [Traefik 2 High Available Mode](https://medium.com/@wshihadeh/traefik-2-high-available-mode-d09c9ec36295)
     * [x] [Prevent DDoS Attacks with Traefik 2](https://medium.com/@wshihadeh/prevent-ddos-attacks-with-traefik-2-44fb32eeac4f)
     * [x] [Integrate Traefik 2.1 Reverse Proxy with Docker Swarm Services](https://medium.com/@wshihadeh/traefik-2-1-as-a-reverse-proxy-c9e274da0a32)
     * [x] [Monitoring Traefik With Grafana](https://medium.com/@wshihadeh/monitoring-traefik-with-grafana-1d037af5b952)
@@ -55,6 +58,8 @@
     * [x] [How to Build Docker Base Images for Rails](https://medium.com/@wshihadeh/build-docker-base-images-for-rails-2258ea2f11dc)
 
 ??? "DevOps Tools && Tricks"
+    * [x] [Build GitHub Actions Using Docker Containers](https://medium.com/@wshihadeh/build-github-actions-using-docker-containers-c57a97be60e2)
+    * [x] [Build a Blog With GitHub and MkDocs](https://medium.com/@wshihadeh/build-a-blog-with-github-and-mkdocs-cf47914affa7)
     * [x] [5 Tips for Hosting Your Own Jenkins Instance](https://medium.com/@wshihadeh/5-tips-for-hosting-your-own-jenkins-instance-64b058ad2c2a)
     * [x] [How to Minimize the Costs of Running AWS EC2 Instances Using Terraform](https://medium.com/@wshihadeh/minimize-the-costs-of-running-aws-ec2-instances-using-terraform-3999c5141830)
     * [x] [Build an OpenLDAP Docker Image That’s Populated With Users](https://medium.com/@wshihadeh/ldap-docker-image-with-populated-users-3a5b4d090aa4)
