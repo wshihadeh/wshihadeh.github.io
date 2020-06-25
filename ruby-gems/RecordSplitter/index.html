@@ -618,9 +618,10 @@
 </tbody>
 </table>
 <h2 id="configuration-examples">Configuration Examples<a class="headerlink" href="#configuration-examples" title="Permanent link">&para;</a></h2>
+<p>Split lines based on the new line charachter <code>\n</code>.</p>
 <div class="superfences-tabs">
 <input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
-<label for="__tab_1_0">Configuration Examples 1</label>
+<label for="__tab_1_0">Configuration</label>
 <div class="superfences-content"><pre class="highlight"><code class="language-yaml">&lt;match pattern&gt;
   @type record_splitter
   tag splitted.log
@@ -637,8 +638,11 @@
 <label for="__tab_1_2">Output</label>
 <div class="superfences-content"><pre class="highlight"><code class="language-yaml">{'akey':'c', 'message': 'line one' }
 {'akey':'c', 'message': 'lines2' }</code></pre></div>
-<input name="__tabs_1" type="radio" id="__tab_1_3" />
-<label for="__tab_1_3">Configuration Examples 1</label>
+</div>
+<p>Split lines based on a defined regex.</p>
+<div class="superfences-tabs">
+<input name="__tabs_2" type="radio" id="__tab_2_0" checked="checked" />
+<label for="__tab_2_0">Configuration</label>
 <div class="superfences-content"><pre class="highlight"><code class="language-yaml">&lt;match pattern&gt;
   @type record_splitter
   tag splitted.log
@@ -647,11 +651,11 @@
   split_regex /\d+\s&lt;\d+&gt;.+/
   remove_keys ["akey"]
 &lt;/match&gt;</code></pre></div>
-<input name="__tabs_1" type="radio" id="__tab_1_4" />
-<label for="__tab_1_4">Input</label>
+<input name="__tabs_2" type="radio" id="__tab_2_1" />
+<label for="__tab_2_1">Input</label>
 <div class="superfences-content"><pre class="highlight"><code class="language-yaml">{'dkey':'c', 'akey':'c', 'abkey':'cc', 'message': '83 &lt;40&gt;1 2012-11-30T06:45:29+00:00 start app\n90 &lt;40&gt;1 2012-11-30T06:45:26+00:00 host app web.3 - Starting process' }</code></pre></div>
-<input name="__tabs_1" type="radio" id="__tab_1_5" />
-<label for="__tab_1_5">Output</label>
+<input name="__tabs_2" type="radio" id="__tab_2_2" />
+<label for="__tab_2_2">Output</label>
 <div class="superfences-content"><pre class="highlight"><code class="language-yaml">{'dkey':'c', 'abkey':'cc', 'message': '83 &lt;40&gt;1 2012-11-30T06:45:29+00:00 start app' }
 {'dkey':'c', 'abkey':'cc', 'message': '90 &lt;40&gt;1 2012-11-30T06:45:26+00:00 host app web.3 - Starting process' }</code></pre></div>
 </div>
