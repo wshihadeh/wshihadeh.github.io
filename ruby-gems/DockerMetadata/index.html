@@ -577,11 +577,11 @@
 <tbody>
 <tr>
 <td>docker_url</td>
-<td>The docker docket URL. Default value is 'unix:///var/run/docker.sock'</td>
+<td>The docker docket URL. Default value is <code>unix:///var/run/docker.sock</code></td>
 </tr>
 <tr>
 <td>container_id_regexp</td>
-<td 64="64">A regex to match the docker container ID. Default is '(\w</td>
+<td>A regex to match the docker container ID. Default is <code>(\w{64})</code></td>
 </tr>
 <tr>
 <td>labels</td>
@@ -656,7 +656,6 @@
 
 &lt;filter docker.var.lib.docker.containers.*.*.log&gt;
   @type docker_metadata
-  image_name true
   labels com.docker.stack.namespace:namespace,com.docker.swarm.service.name:service_name,com.docker.swarm.node.id:node_id
 &lt;/filter&gt;</code></pre></div>
 <input name="__tabs_2" type="radio" id="__tab_2_1" />
