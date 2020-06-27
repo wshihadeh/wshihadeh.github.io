@@ -88,6 +88,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="#docker-metadata" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -352,10 +356,55 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Docker Metadata
+      </label>
     
     <a href="./" title="Docker Metadata" class="md-nav__link md-nav__link--active">
       Docker Metadata
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurations" class="md-nav__link">
+    Configurations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-examples" class="md-nav__link">
+    Configuration Examples
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -449,6 +498,51 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurations" class="md-nav__link">
+    Configurations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-examples" class="md-nav__link">
+    Configuration Examples
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -457,9 +551,130 @@
                   <a href="https://github.com/wshihadeh/wshihadeh.github.io/edit/source/docs/content/ruby-gems/DockerMetadata.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Docker Metadata</h1>
-                
-                
+                <h1 id="docker-metadata">Docker Metadata<a class="headerlink" href="#docker-metadata" title="Permanent link">&para;</a></h1>
+<p>A Fluentd filter plugin to attach docker swarm metadata such as service name and container name to the fluentd messages.</p>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Gemfile content</p>
+<p>Add this line to your application's Gemfile:</p>
+<pre class="highlight"><code class="language-ruby">gem 'fluent-plugin-filter-docker_metadata'</code></pre>
+
+</div>
+<p>And then execute:</p>
+<pre class="highlight"><code class="language-sh">$~&gt; bundle install</code></pre>
+
+<p>Or install it yourself as:</p>
+<pre class="highlight"><code class="language-sh">$~&gt; gem install fluent-plugin-filter-docker_metadata</code></pre>
+
+<h2 id="configurations">Configurations<a class="headerlink" href="#configurations" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Configuration Ite</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>docker_url</td>
+<td>The docker docket URL. Default value is 'unix:///var/run/docker.sock'</td>
+</tr>
+<tr>
+<td>container_id_regexp</td>
+<td 64="64">A regex to match the docker container ID. Default is '(\w</td>
+</tr>
+<tr>
+<td>labels</td>
+<td>A list of key-value pairs to generate extra labels form the defined docker swarm labels</td>
+</tr>
+<tr>
+<td>keys_delimiter</td>
+<td>The character used to separate the labels keys defined in <code>labels</code>. The default value is <code>,</code></td>
+</tr>
+<tr>
+<td>values_delimiter</td>
+<td>The character used to separate the keys and values defined in <code>labels</code>. The default value is <code>:</code></td>
+</tr>
+<tr>
+<td>image_name</td>
+<td>A boolean value that indicates including the image name or not in the generated event. The default value is <code>false</code></td>
+</tr>
+<tr>
+<td>image_id</td>
+<td>A boolean value that indicates including the image ID or not in the generated event Default value is <code>false</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="configuration-examples">Configuration Examples<a class="headerlink" href="#configuration-examples" title="Permanent link">&para;</a></h2>
+<p>Extract default docker metadata and attach it to the fulentD messages.</p>
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">Configuration</label>
+<div class="superfences-content"><pre class="highlight"><code class="language-yaml">&lt;source&gt;
+  @type tail
+  @id in_tail_container_logs
+  path /var/lib/docker/containers/*/*-json.log
+  pos_file /fluentd/log/containers.log.pos
+  time_format "%Y-%m-%dT%H:%M:%S.%L%Z"
+  time_key time
+  read_from_head true
+  tag "docker.*"
+  format json
+&lt;/source&gt;
+
+&lt;filter docker.var.lib.docker.containers.*.*.log&gt;
+  @type docker_metadata
+&lt;/filter&gt;</code></pre></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">Input</label>
+<div class="superfences-content"><pre class="highlight"><code class="language-yaml">{"log":"2020-06-27 18:47:13 [INFO] Started Successfully","stream":"stderr","time":"2020-06-27T16:47:13.952355891Z"}</code></pre></div>
+<input name="__tabs_1" type="radio" id="__tab_1_2" />
+<label for="__tab_1_2">Output</label>
+<div class="superfences-content"><pre class="highlight"><code class="language-yaml">{ "log":"2020-06-27 18:47:13 [INFO] Started Successfully",
+  "stream":"stderr",
+  "container_id": "299d81cacec6c3d6c5077c4dfc60254160869c832f0668f9dd414d11032127e5",
+  "container_name": "redis_web.1.f0cdb8tvkmnuvfuj8w4dujits",
+  "container_hostname": "299d81cacec6",
+  "time":"2020-06-27T16:47:13.952355891Z"
+}</code></pre></div>
+</div>
+<p>Extract default docker metadata, docker image name and keys form docker swarm lables.</p>
+<div class="superfences-tabs">
+<input name="__tabs_2" type="radio" id="__tab_2_0" checked="checked" />
+<label for="__tab_2_0">Configuration</label>
+<div class="superfences-content"><pre class="highlight"><code class="language-yaml">&lt;source&gt;
+  @type tail
+  @id in_tail_container_logs
+  path /var/lib/docker/containers/*/*-json.log
+  pos_file /fluentd/log/containers.log.pos
+  time_format "%Y-%m-%dT%H:%M:%S.%L%Z"
+  time_key time
+  read_from_head true
+  tag "docker.*"
+  format json
+&lt;/source&gt;
+
+&lt;filter docker.var.lib.docker.containers.*.*.log&gt;
+  @type docker_metadata
+  image_name true
+  labels com.docker.stack.namespace:namespace,com.docker.swarm.service.name:service_name,com.docker.swarm.node.id:node_id
+&lt;/filter&gt;</code></pre></div>
+<input name="__tabs_2" type="radio" id="__tab_2_1" />
+<label for="__tab_2_1">Input</label>
+<div class="superfences-content"><pre class="highlight"><code class="language-yaml">{"log":"2020-06-27 18:47:13 [INFO] Started Successfully","stream":"stderr","time":"2020-06-27T16:47:13.952355891Z"}</code></pre></div>
+<input name="__tabs_2" type="radio" id="__tab_2_2" />
+<label for="__tab_2_2">Output</label>
+<div class="superfences-content"><pre class="highlight"><code class="language-yaml">{ "log":"2020-06-27 18:47:13 [INFO] Started Successfully",
+  "stream":"stderr",
+  "container_id": "299d81cacec6c3d6c5077c4dfc60254160869c832f0668f9dd414d11032127e5",
+  "container_name": "redis_web.1.f0cdb8tvkmnuvfuj8w4dujits",
+  "container_hostname": "299d81cacec6",
+  "namespace": "redis_web",
+  "node_id": "286enn745vela3gdmw4piig0d",
+  "service_name": "redis_web",
+  "time":"2020-06-27T16:47:13.952355891Z"
+}</code></pre></div>
+</div>
                 
                   
                 
