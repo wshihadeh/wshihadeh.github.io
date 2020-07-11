@@ -34,7 +34,7 @@ $~> gem install fluent-plugin-filter-kv-parser
 | use_regex | A boolean value to indicate whether to use regex for parsing the messages or not. The default is false. |
 | remove_prefix | A regex to remove a prefix of the message and to exclude it from being parsed |
 | keys_delimiter | The Key delimiter character (how the keys are separated). The default is space.  |
-| kv_delimiter_chart | The Key-Value delimiter. The default is `=`  |
+| kv_delimiter_char | The Key-Value delimiter. The default is `=`  |
 | filtered_keys | List of keys that will be whitelisted |
 | filtered_keys_regex | A regex to white list extracted keys  |
 | filtered_keys_delimiter |  The character used to separate keys defined in `filtered_keys` |
