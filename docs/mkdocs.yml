@@ -65,7 +65,7 @@ markdown_extensions:
 nav:
   - 'Welcome': 'index.md'
   - 'Blog Posts': 'Blog.md'
-  - 'GitHub Acrions':
+  - 'GitHub Actions':
       - 'Docker Deployment' : 'actions/Docker-Deployment.md'
   - 'Ruby Gems':
       - 'DeepHealthCheck': 'ruby-gems/DeepHealthCheck.md'
