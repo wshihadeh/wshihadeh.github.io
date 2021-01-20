@@ -253,11 +253,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
-      GitHub Acrions
+      GitHub Actions
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
-        GitHub Acrions
+        GitHub Actions
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -802,30 +802,25 @@
 <h2 id="command-line">Command Line<a class="headerlink" href="#command-line" title="Permanent link">&para;</a></h2>
 <h3 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h3>
 <pre class="highlight"><code class="language-sh">$~&gt; gem install swarm_orca</code></pre>
-
 <h3 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h3>
 <pre class="highlight"><code class="language-sh">$~&gt; orca decrypt KEY CIPHER # This Command will decrypt the given cipher
 $~&gt; orca encrypt KEY TEXT # This Command will encrypt the given text
 $~&gt; orca gen_enc_key # This Command will generate new encryption key
 $~&gt; orca help [COMMAND] # Describe available commands or one specific command
 $~&gt; orca new ORCA_DIRECTORY_NAME GIT_FORK DOCKER_NETWORK  # This Command will create a new Orca project</code></pre>
-
 <h2 id="install_1">Install<a class="headerlink" href="#install_1" title="Permanent link">&para;</a></h2>
 <p>Add the following to your <code>Gemfile</code>.</p>
 <pre class="highlight"><code class="language-ruby">group :deployment do
   gem 'capistrano'
   gem 'swarm_orca'
 end</code></pre>
-
 <p>Then run</p>
 <pre class="highlight"><code class="language-sh">$~&gt; bundle install</code></pre>
-
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Add the following to your <code>Capfile</code>.</li>
 </ul>
 <pre class="highlight"><code class="language-ruby">require "swarm_orca"</code></pre>
-
 <ul>
 <li>Add the following to your <code>deploy.rb</code>.</li>
 </ul>
@@ -842,7 +837,6 @@ set (:db_apps_stacks_mapping), {
 require "capistrano/swarm_orca/deploy"
 require "capistrano/swarm_orca/docker"
 </code></pre>
-
 <h2 id="define-your-services-and-application">Define your services and application<a class="headerlink" href="#define-your-services-and-application" title="Permanent link">&para;</a></h2>
 <p>Swarm orca define the managed services and applications in <code>deploy.rb</code>.</p>
 <ul>
@@ -854,7 +848,6 @@ require "capistrano/swarm_orca/docker"
   core: %w(api-backend mobile-backedn),
   frontend: %w(),
 }</code></pre>
-
 <ul>
 <li>elasticsearch_apps: application names that are connected to elasticsearch.</li>
 </ul>
@@ -869,7 +862,6 @@ require "capistrano/swarm_orca/docker"
     mysql_docker_image: 'mysql',
     mysql_docker_image_tag: '5.7',
     mysql_volume: "#{fetch(:deploy_to)}/mysql"</code></pre>
-
 <ul>
 <li>Special config keys:
   {application}_database_url: Database URL for the rails application.
@@ -893,7 +885,6 @@ require "capistrano/swarm_orca/docker"
 <pre class="highlight"><code class="language-ruby">cat seeds/backend.rb
 Rails.application.load_tasks
 Rake::Task['roles:reseed_defaults'].execute</code></pre>
-
 <h2 id="application-database-migrations">Application Database migrations<a class="headerlink" href="#application-database-migrations" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Define migrations, seeds and elasticsearch reindex.<ul>
@@ -904,7 +895,6 @@ Rake::Task['roles:reseed_defaults'].execute</code></pre>
 </ul>
 <pre class="highlight"><code class="language-ruby">server "${server}", user: "deploy", roles: %w{${stack}_db ${stack}_reindex}
 server "${server}", user: "deploy", roles: %w{backend_db backend_reindex}</code></pre>
-
 <h2 id="deployment-strategy">Deployment Strategy<a class="headerlink" href="#deployment-strategy" title="Permanent link">&para;</a></h2>
 <p>By default capistrano supports only git deployment strategy to support xopy strategy do the following:</p>
 <ul>
@@ -914,12 +904,10 @@ server "${server}", user: "deploy", roles: %w{backend_db backend_reindex}</code>
   +scm = ENV.fetch('SCM', 'git')
   +require "capistrano/scm/#{scm}"
   +install_plugin Module.const_get("Capistrano::SCM::#{scm.capitalize}")</code></pre>
-
 <ul>
 <li>To deploy with Copy strategy add "SCM=copy" to the command line.</li>
 </ul>
 <pre class="highlight"><code class="language-sh">$~&gt; SCM=copy bundle exec cap ${stage} deploy:${stack}</code></pre>
-
 <h2 id="one-time-migrations">One Time migrations<a class="headerlink" href="#one-time-migrations" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Execute One Time migrations from orca.<ul>
@@ -930,7 +918,6 @@ server "${server}", user: "deploy", roles: %w{backend_db backend_reindex}</code>
 </ul>
 <pre class="highlight"><code class="language-ruby">deploy:otm_${application}[${migration_name}]
 # deploy:otm_backend[update_referral_bonus_transactions_text]</code></pre>
-
 <ul>
 <li>The migration task should be defined in the project source code under the name space "one_time_migrations"</li>
 </ul>
@@ -942,7 +929,6 @@ server "${server}", user: "deploy", roles: %w{backend_db backend_reindex}</code>
     backend_data_migrate: 'true',
 ....
   }</code></pre>
-
 <h2 id="erb-templates">ERB templates<a class="headerlink" href="#erb-templates" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Setup Stacks ERB templates<ul>
@@ -965,7 +951,6 @@ server "${server}", user: "deploy", roles: %w{backend_db backend_reindex}</code>
 <pre class="highlight"><code class="language-ruby">  set :shared, {
      global_variable: 'value_123'
   }</code></pre>
-
 <ul>
 <li>To set shared application configurations that are available in all stacks with special key.
 Need to create shared application set like:</li>
@@ -973,7 +958,6 @@ Need to create shared application set like:</li>
 <pre class="highlight"><code class="language-ruby">  set :backend_shared, {
      environment_label: "staging",
   }</code></pre>
-
 <p>Add special key to include shared application config to application config</p>
 <pre class="highlight"><code class="language-ruby">  set :web_backend {
     include_shared_config: 'backend_shared',
@@ -981,7 +965,6 @@ Need to create shared application set like:</li>
   set :mobile_backend {
     include_shared_config: 'backend_shared',
   }</code></pre>
-
 <h2 id="local-deployment">Local Deployment<a class="headerlink" href="#local-deployment" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Support Local Deployment with Swarm Orca<ul>
@@ -995,7 +978,6 @@ Need to create shared application set like:</li>
     swarm_manager
   }
   set (:deploy_to) { "${deploy_to_path}" }</code></pre>
-
 <ul>
 <li>${server}: Can be replaced by by "localhost", "127.0.0.1" or any domain that include "local" in it.</li>
 <li>${user}: Default it will use the ENV 'USER' value, but if this ENV 'USER' is not defined, you can also defined another/own user.</li>
@@ -1029,7 +1011,6 @@ Need to create shared application set like:</li>
     rabbitmq_docker_image_tag: '3.6-management',
     rabbitmq_volume: '/Users/shihadeh/ggs/rmq'
   }</code></pre>
-
 <h2 id="encrypted-attribute">Encrypted attribute<a class="headerlink" href="#encrypted-attribute" title="Permanent link">&para;</a></h2>
 <p>To support encrypted configuration do the follwing:</p>
 <ul>
@@ -1042,7 +1023,6 @@ Need to create shared application set like:</li>
   backend_docker_image: 'backend',
   backend_docker_image_tag: 'develop',
   encrypted_backend_database_url: 'h/UNau5AFvhxDbUkBZbPw6RBJzkTPjIMmWOQ+lQ==',</code></pre>
-
 <ul>
 <li>export the encryption key one the machine where the deployemnt scripts will be executed ie (your local machine or jenkins nodes).</li>
 </ul>
@@ -1053,58 +1033,47 @@ Need to create shared application set like:</li>
 </ul>
 <pre class="highlight"><code class="language-sh"># setup and deploy, it will created dbs, and run seeds
 $~&gt; bundle exec cap ${stage} deploy:development_setup</code></pre>
-
 <ul>
 <li>Build custom docker images manually</li>
 </ul>
 <pre class="highlight"><code class="language-sh">$~&gt; bundle exec cap ${stage} deploy:build_images</code></pre>
-
 <ul>
 <li>Deploy individual stacks</li>
 </ul>
 <pre class="highlight"><code class="language-sh">$~&gt; bundle exec cap ${stage} deploy:${stack}</code></pre>
-
 <ul>
 <li>Deployment with specific fork
 Swarm orca defines a defult for for deployment. The fork value can be changed by setting the ENV 'FORK'.</li>
 </ul>
 <pre class="highlight"><code class="language-sh">$~&gt; FORK=${forkName}  bundle exec cap ${stage} deploy:${stack}</code></pre>
-
 <p>Example deploying with fork 'shihadeh'</p>
 <pre class="highlight"><code class="language-sh">$~&gt; FORK=shihadeh bundle exec cap ${stage} deploy:${stack}</code></pre>
-
 <ul>
 <li>Deploy more than one stack</li>
 </ul>
 <pre class="highlight"><code class="language-sh">$~&gt; DEPLOYED_STACKS="mysql rabbitmq" bundle exec cap ${stage} deploy:auto</code></pre>
-
 <ul>
 <li>Deploy without building docker images.</li>
 </ul>
 <pre class="highlight"><code class="language-sh">$~&gt; BUILD_IMAGE=false bundle exec cap ${stage} deploy:${stack}</code></pre>
-
 <ul>
 <li>Deploy all</li>
 </ul>
 <pre class="highlight"><code class="language-sh">$~&gt; bundle exec cap ${stage} deploy:all</code></pre>
-
 <ul>
 <li>Recreate DBS for an environment
 Use deploy:recreate_all_dbs task to return an envornment(stage) databases to the initial stage</li>
 </ul>
 <pre class="highlight"><code class="language-sh">$~&gt; bundle exec cap ${stage} deploy:recreate_all_dbs</code></pre>
-
 <ul>
 <li>Deploy Debug Mode</li>
 </ul>
 <pre class="highlight"><code class="language-sh">$~&gt; ORCA_DEBUG=true bundle exec cap ${stage} ${task}</code></pre>
-
 <ul>
 <li>Deployment without cleaning up old docker images.
 Add the <code>PRUNE=false</code> variable to your deployment command.</li>
 </ul>
 <pre class="highlight"><code class="language-sh">$~&gt; PRUNE=false bundle exec cap local deploy:auto</code></pre>
-
 <h2 id="swarm-orca-special-roles">Swarm Orca special roles<a class="headerlink" href="#swarm-orca-special-roles" title="Permanent link">&para;</a></h2>
 <ul>
 <li>swarm_manager : Nodes with this command will be used to execute deployment commands. You only need one node this role per stage.</li>

@@ -253,11 +253,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
-      GitHub Acrions
+      GitHub Actions
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
-        GitHub Acrions
+        GitHub Actions
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -542,30 +542,24 @@
 <p class="admonition-title">Gemfile content</p>
 <p>Add this line to your application's Gemfile:</p>
 <pre class="highlight"><code class="language-ruby">gem 'delayed_job_metrics'</code></pre>
-
 </div>
 <p>And then execute:</p>
 <pre class="highlight"><code class="language-sh">$~&gt; bundle install</code></pre>
-
 <p>Or install it yourself as:</p>
 <pre class="highlight"><code class="language-sh">$~&gt; gem install delayed_job_metrics</code></pre>
-
 <h2 id="usage-configurations">Usage &amp; Configurations<a class="headerlink" href="#usage-configurations" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Enable metrics middelware</li>
 </ul>
 <pre class="highlight"><code class="language-ruby">DELAYED_JOB_METRICS_ENABLED=true</code></pre>
-
 <ul>
 <li>Start Rails server and start scraping metrics</li>
 </ul>
 <pre class="highlight"><code class="language-sh">$~&gt; curl -fs http://127.0.0.1:3000/metrics</code></pre>
-
 <ul>
 <li>Overwrite the default metrics endpoint</li>
 </ul>
 <pre class="highlight"><code class="language-ruby">DELAYED_JOB_METRICS_ENNDPOINT=/my_endpoint</code></pre>
-
 <ul>
 <li>Setup basic auth</li>
 </ul>
@@ -574,7 +568,6 @@
 <p>Use the below environment variables to setup the basic authentication for the metrics endpiint</p>
 <pre class="highlight"><code class="language-ruby">HTAUTH_METRICS_USER=user
 HTAUTH_METRICS_PASSWORD=secret</code></pre>
-
 </div>
                 
                   

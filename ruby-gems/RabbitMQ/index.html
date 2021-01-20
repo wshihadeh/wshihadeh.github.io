@@ -253,11 +253,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
-      GitHub Acrions
+      GitHub Actions
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
-        GitHub Acrions
+        GitHub Actions
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -636,7 +636,6 @@
 |  _ &lt; (_| | |_) | |_) | | |_| |  | | |_| | | |___| | |  __/ | | | |_
 |_| \_\__,_|_.__/|_.__/|_|\__|_|  |_|\__\_\  \____|_|_|\___|_| |_|\__|
 </code></pre>
-
 <p><a href="https://badge.fury.io/rb/rabbitmq_client"><img alt="Gem Version" src="https://badge.fury.io/rb/rabbitmq_client.svg" /></a>
 <a href="http://opensource.org/licenses/MIT"><img alt="License" src="https://img.shields.io/badge/license-MIT-green.svg" /></a>
 <a href="https://travis-ci.com/wshihadeh/rabbitmq_client"><img alt="Build Status" src="https://travis-ci.com/wshihadeh/rabbitmq_client.svg?branch=master" /></a>
@@ -654,13 +653,10 @@
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
 <p>Add this line to your application's Gemfile:</p>
 <pre class="highlight"><code class="language-ruby">gem 'rabbitmq_client'</code></pre>
-
 <p>And then execute:</p>
 <pre class="highlight"><code class="language-sh">$~&gt; bundle</code></pre>
-
 <p>Or install it yourself as:</p>
 <pre class="highlight"><code class="language-sh">$~&gt; gem install rabbitmq_client</code></pre>
-
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <p>RabbitMQ Client can be used to publsih and subscribe RabbitMQ messages.</p>
 <h2 id="configurations">Configurations<a class="headerlink" href="#configurations" title="Permanent link">&para;</a></h2>
@@ -743,11 +739,9 @@
   config.global_store = RequestHeaderMiddleware
   config.whitelist =  ['x-request-id'.to_sym]
 end</code></pre>
-
 <h4 id="append-plungins-or-whitelist-items">Append plungins or whitelist items<a class="headerlink" href="#append-plungins-or-whitelist-items" title="Permanent link">&para;</a></h4>
 <pre class="highlight"><code class="language-ruby"> RabbitmqClient.plugins &lt;&lt; MYRabbitmqClientPlugin
  RabbitmqClient.whitelist &lt;&lt; :white_listed_header_key</code></pre>
-
 <h2 id="publishing-messages-to-rabbitmq">Publishing messages to RabbitMQ<a class="headerlink" href="#publishing-messages-to-rabbitmq" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Publish messages using RabbitmqClient singleton publisher</li>
@@ -756,7 +750,6 @@ end</code></pre>
   RabbitmqClient.add_exchange('default.rabbitmq_client', :topic, {})
   # RabbitmqClient.publish(payload, options)
   RabbitmqClient.publish({id: 10, name: 'rabbitmq_client'}, { exchange_name: 'default.rabbitmq_client' })</code></pre>
-
 <ul>
 <li>Create a publisher and use it</li>
 </ul>
@@ -767,7 +760,6 @@ end</code></pre>
   }
  publisher = RabbitmqClient::Publisher.new(config)
  publisher.publish(payload, options)</code></pre>
-
 <h2 id="plugins">Plugins<a class="headerlink" href="#plugins" title="Permanent link">&para;</a></h2>
 <p>RabbitmqClient plugins are classes that define a callbacks that can be executed before or after events that occuers during RabbitmqClient lifecycle.
 Current supprted lifecycle events are:</p>
