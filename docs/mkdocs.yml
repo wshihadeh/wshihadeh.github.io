@@ -2,7 +2,7 @@ site_name: Al-waleed Shihadeh
 site_description: Documentation for the Ruby gems, FluentD plugins and GitHub Action maintained by Al-waleed Shihadeh
 site_author: wshihadeh
 # The landing page (web/) is served from the root, the docs live under /docs/.
-site_url: https://wshihadeh.github.io/docs/
+site_url: https://shihadeh.dev/docs/
 dev_addr: 0.0.0.0:8000
 
 repo_name: wshihadeh/wshihadeh.github.io
@@ -57,7 +57,7 @@ extra_css:
   - assets/styles/extra.css
 
 extra:
-  homepage: https://wshihadeh.github.io/
+  homepage: https://shihadeh.dev/
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/wshihadeh

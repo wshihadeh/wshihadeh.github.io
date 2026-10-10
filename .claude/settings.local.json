@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(gh secret *)",
+      "Bash(gh api *)",
+      "Read(//private/tmp/**)",
+      "Bash(curl -sI https://shihadeh.dev/_astro/index.0nzlw-9w.css)",
+      "Bash(curl -s https://shihadeh.dev/docs/)",
+      "Bash(curl -sI https://wshihadeh.github.io/)",
+      "Bash(git checkout *)",
+      "Bash(git pull *)",
+      "Bash(python3 -I -)",
+      "Bash(make -C docs docs-landing docs-build)",
+      "Bash(gh pr create --base source --head fix-pages-assets --title 'Fix landing page CSS 404 on GitHub Pages' --body ' *)"
+    ]
+  }
+}
