@@ -6,62 +6,70 @@ A [GitHub Action](https://github.com/marketplace/actions/docker-deployment) that
 
 Below is a brief examples on how the action can be used:
 
-```yaml tab="Swarm"
-- name: Deploy to Docker swarm
-  uses: wshihadeh/docker-deployment-action@v1
-  with:
-    remote_docker_host: user@myswarm.com
-    ssh_private_key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
-    ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
-    deployment_mode: docker-swarm
-    args: my_applicaion
-```
+=== "Swarm"
 
-```yaml tab="Compose"
-- name: Deploy to Docker Host
-  uses: wshihadeh/docker-deployment-action@v1
-  with:
-    remote_docker_host: user@myswarm.com
-    ssh_private_key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
-    ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
-    deployment_mode: docker-compose
-    args: up -d
-    pre_deployment_command_args: 'bundle exec rake db:migrate'
-    docker_prune: 'true'
-    pull_images_first: 'true'
-```
+    ```yaml
+    - name: Deploy to Docker swarm
+      uses: wshihadeh/docker-deployment-action@v1
+      with:
+        remote_docker_host: user@myswarm.com
+        ssh_private_key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
+        ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
+        deployment_mode: docker-swarm
+        args: my_applicaion
+    ```
 
-```yaml tab="Compose with copy"
-- name: Deploy to Docker Host
-  uses: wshihadeh/docker-deployment-action@v1
-  with:
-    remote_docker_host: user@myswarm.com
-    ssh_private_key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
-    ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
-    deployment_mode: docker-compose
-    copy_stack_file: true
-    deploy_path: /root/my-deployment
-    stack_file_name: docker-compose.yaml
-    keep_files: 5
-    args: up -d
-    docker_prune: 'false'
-    pull_images_first: 'false'
-```
+=== "Compose"
 
-```yaml tab="Swarm with copy"
-- name: Deploy to Docker swarm
-  uses: wshihadeh/docker-deployment-action@v1
-  with:
-    remote_docker_host: user@myswarm.com
-    ssh_private_key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
-    ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
-    deployment_mode: docker-swarm
-    copy_stack_file: true
-    deploy_path: /root/my-deployment
-    stack_file_name: docker-stack.yaml
-    keep_files: 5
-    args: my_applicaion
-```
+    ```yaml
+    - name: Deploy to Docker Host
+      uses: wshihadeh/docker-deployment-action@v1
+      with:
+        remote_docker_host: user@myswarm.com
+        ssh_private_key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
+        ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
+        deployment_mode: docker-compose
+        args: up -d
+        pre_deployment_command_args: 'bundle exec rake db:migrate'
+        docker_prune: 'true'
+        pull_images_first: 'true'
+    ```
+
+=== "Compose with copy"
+
+    ```yaml
+    - name: Deploy to Docker Host
+      uses: wshihadeh/docker-deployment-action@v1
+      with:
+        remote_docker_host: user@myswarm.com
+        ssh_private_key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
+        ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
+        deployment_mode: docker-compose
+        copy_stack_file: true
+        deploy_path: /root/my-deployment
+        stack_file_name: docker-compose.yaml
+        keep_files: 5
+        args: up -d
+        docker_prune: 'false'
+        pull_images_first: 'false'
+    ```
+
+=== "Swarm with copy"
+
+    ```yaml
+    - name: Deploy to Docker swarm
+      uses: wshihadeh/docker-deployment-action@v1
+      with:
+        remote_docker_host: user@myswarm.com
+        ssh_private_key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
+        ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
+        deployment_mode: docker-swarm
+        copy_stack_file: true
+        deploy_path: /root/my-deployment
+        stack_file_name: docker-stack.yaml
+        keep_files: 5
+        args: my_applicaion
+    ```
 
 ## Input Configurations
 

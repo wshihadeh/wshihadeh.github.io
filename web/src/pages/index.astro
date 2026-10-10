@@ -1,0 +1,198 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import posts from '../data/posts.json';
+import projects from '../data/projects.json';
+
+const socials = [
+  { name: 'GitHub', icon: 'github', url: 'https://github.com/wshihadeh' },
+  { name: 'LinkedIn', icon: 'linkedin', url: 'https://www.linkedin.com/in/wshihadeh/' },
+  { name: 'Medium', icon: 'medium', url: 'https://medium.com/@wshihadeh' },
+  { name: 'Stack Overflow', icon: 'stackoverflow', url: 'https://stackoverflow.com/users/12747692/al-waleed-shihadeh' },
+  { name: 'X', icon: 'x', url: 'https://twitter.com/wshihadh' },
+] as const;
+
+const allPosts = posts.flatMap((c) => c.posts.map((p) => ({ ...p, category: c.name })));
+const projectCount = projects.reduce((n, g) => n + g.items.length, 0);
+const docsUrl = (doc: string) => `/docs/${doc}/`;
+---
+
+<Layout>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/"><span class="brand-mark">AS</span> Al-waleed Shihadeh</a>
+      <nav class="nav" aria-label="Main">
+        <a href="#projects">Projects</a>
+        <a href="#blog">Blog</a>
+        <a href="/docs/">Docs</a>
+        <a class="cta" href="https://github.com/wshihadeh">GitHub</a>
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle dark mode">
+          <span aria-hidden="true" id="theme-icon">🌙</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="sun" aria-hidden="true"></div>
+      <div class="cloud c1" aria-hidden="true"></div>
+      <div class="cloud c2" aria-hidden="true"></div>
+      <div class="cloud c3" aria-hidden="true"></div>
+
+      <div class="container">
+        <span class="eyebrow">Software &amp; DevOps engineer</span>
+        <h1>Hi, I'm <span class="gradient-text">Al-waleed Shihadeh</span></h1>
+        <p class="lead">
+          I build and run software on containers, and write about what I learn: Docker, Kubernetes,
+          observability and Ruby on Rails. This is where my articles, gems and tools live.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#blog">Read the blog</a>
+          <a class="btn btn-ghost" href="#projects">Browse projects</a>
+        </div>
+        <div class="socials">
+          {socials.map((s) => (
+            <a class="social" href={s.url} rel="me noopener" target="_blank">
+              <Icon name={s.icon} /> {s.name}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <svg class="hills" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true">
+        <path class="h1" d="M0 110 C 240 40 420 40 640 100 S 1080 160 1440 70 V200 H0Z" />
+        <path class="h2" d="M0 150 C 260 90 520 90 760 140 S 1200 180 1440 120 V200 H0Z" />
+        <path class="h3" d="M0 185 C 300 150 600 150 900 180 S 1300 200 1440 175 V200 H0Z" />
+      </svg>
+    </section>
+
+    <div class="container">
+      <div class="stats">
+        <div class="stat"><strong>{allPosts.length}</strong><span>Articles on Medium</span></div>
+        <div class="stat"><strong>{posts.length}</strong><span>Topics covered</span></div>
+        <div class="stat"><strong>{projectCount}</strong><span>Open source projects</span></div>
+        <div class="stat"><strong>2016</strong><span>Building and writing since</span></div>
+      </div>
+    </div>
+
+    <section class="block" id="projects">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Open source</span>
+          <h2>Projects</h2>
+          <p>Gems, FluentD plugins and a GitHub Action I maintain. Each one has full docs.</p>
+        </div>
+
+        {projects.map((group) => (
+          <>
+            <h3 class="group-title">{group.group}</h3>
+            <div class="grid">
+              {group.items.map((item) => (
+                <a class="card" href={docsUrl(item.doc)}>
+                  <span class="tag">{item.tag}</span>
+                  <h3>{item.name}</h3>
+                  <p>{item.description}</p>
+                  <span class="more">Read the docs →</span>
+                </a>
+              ))}
+            </div>
+          </>
+        ))}
+      </div>
+    </section>
+
+    <section class="block" id="blog" style="background: var(--surface-2)">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Writing</span>
+          <h2>Blog posts</h2>
+          <p>Articles on Medium, grouped by topic. Search or filter to find something.</p>
+        </div>
+
+        <div class="blog-tools">
+          <input class="search" id="post-search" type="search" placeholder="Search articles…" aria-label="Search articles" />
+          <div class="chips" id="chips" role="group" aria-label="Filter by topic">
+            <button class="chip" type="button" data-cat="" aria-pressed="true">All</button>
+            {posts.map((c) => (
+              <button class="chip" type="button" data-cat={c.name} aria-pressed="false">{c.name}</button>
+            ))}
+          </div>
+        </div>
+
+        <div class="grid" id="post-grid">
+          {allPosts.map((p) => (
+            <a class="card post" href={p.url} target="_blank" rel="noopener" data-cat={p.category} data-title={p.title.toLowerCase()}>
+              <span class="cat">{p.category}</span>
+              <h3>{p.title}</h3>
+              <span class="more">Read on Medium →</span>
+            </a>
+          ))}
+        </div>
+        <p class="empty" id="no-posts">No articles match your search.</p>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="container">
+        <div class="callout">
+          <div>
+            <h2>Looking for the documentation?</h2>
+            <p>Installation guides, configuration examples and usage notes for every gem and the GitHub Action.</p>
+          </div>
+          <a class="btn" href="/docs/">Open the docs</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>© {new Date().getFullYear()} Al-waleed Shihadeh</span>
+      <span>
+        Source on <a href="https://github.com/wshihadeh/wshihadeh.github.io">GitHub</a>
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    const icon = document.getElementById('theme-icon')!;
+    const syncIcon = () => (icon.textContent = root.dataset.theme === 'dark' ? '☀️' : '🌙');
+    syncIcon();
+    document.getElementById('theme-toggle')!.addEventListener('click', () => {
+      const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = next;
+      localStorage.setItem('theme', next);
+      syncIcon();
+    });
+
+    // Blog filtering: topic chips plus free-text search.
+    const cards = Array.from(document.querySelectorAll<HTMLElement>('#post-grid .post'));
+    const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('#chips .chip'));
+    const search = document.getElementById('post-search') as HTMLInputElement;
+    const empty = document.getElementById('no-posts')!;
+    let category = '';
+
+    const apply = () => {
+      const q = search.value.trim().toLowerCase();
+      let shown = 0;
+      for (const card of cards) {
+        const match =
+          (!category || card.dataset.cat === category) && (!q || card.dataset.title!.includes(q));
+        card.style.display = match ? '' : 'none';
+        if (match) shown++;
+      }
+      empty.style.display = shown ? 'none' : 'block';
+    };
+
+    chips.forEach((chip) =>
+      chip.addEventListener('click', () => {
+        category = chip.dataset.cat ?? '';
+        chips.forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
+        apply();
+      }),
+    );
+    search.addEventListener('input', apply);
+  </script>
+</Layout>

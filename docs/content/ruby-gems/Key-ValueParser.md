@@ -43,93 +43,111 @@ $~> gem install fluent-plugin-filter-kv-parser
 
 Filter log message and whitelist a specific keys.
 
-```yaml tab="Configuration"
-<match pattern>
-  @type key_value_parser
-  key log
-  remove_key true
-  remove_prefix /^[^ ]+\s[^ ]+/
-  use_regex true
-  filtered_keys key,gkeyn,nkey,skey,akey,zkey
-</match>
-```
+=== "Configuration"
 
-```yaml tab="Input"
-{
-  'time' => '2013-02-12 22:01:15 UTC',
-  'log'  => "Start Request key=10 gkey=100 nkey=108 skey='this is a miltispace line' akey=20 zkey=30 dkey=4"
-}
-```
+    ```yaml
+    <match pattern>
+      @type key_value_parser
+      key log
+      remove_key true
+      remove_prefix /^[^ ]+\s[^ ]+/
+      use_regex true
+      filtered_keys key,gkeyn,nkey,skey,akey,zkey
+    </match>
+    ```
 
-```yaml tab="Output"
-{
-  "time"=>"2013-02-12 22:01:15 UTC",
-  "key"=>"10",
-  "nkey"=>"108",
-  "skey"=>"'this is a miltispace line'",
-  "akey"=>"20",
-  "zkey"=>"30"
-}
-```
+=== "Input"
+
+    ```yaml
+    {
+      'time' => '2013-02-12 22:01:15 UTC',
+      'log'  => "Start Request key=10 gkey=100 nkey=108 skey='this is a miltispace line' akey=20 zkey=30 dkey=4"
+    }
+    ```
+
+=== "Output"
+
+    ```yaml
+    {
+      "time"=>"2013-02-12 22:01:15 UTC",
+      "key"=>"10",
+      "nkey"=>"108",
+      "skey"=>"'this is a miltispace line'",
+      "akey"=>"20",
+      "zkey"=>"30"
+    }
+    ```
 
 Filter log message and whitelist keys that match a given regex.
 
-```yaml tab="Configuration"
-<match pattern>
-  @type key_value_parser
-  key log
-  remove_key true
-  remove_prefix /^[^ ]+\s[^ ]+/
-  use_regex true
-  filtered_keys none
-  filtered_keys_regex /^sub_[a-zA-Z_0-9]+/
-</match>
-```
+=== "Configuration"
 
-```yaml tab="Input"
-{
-  'time' => '2013-02-12 22:01:15 UTC',
-  'log'  => "Start Request sub_key=0 sub_akey=11 sub_zkey=12 key=10 gkey=100 nkey=108 skey='this is a miltispace line' akey=20 zkey=30 dkey=4"
-}
-```
+    ```yaml
+    <match pattern>
+      @type key_value_parser
+      key log
+      remove_key true
+      remove_prefix /^[^ ]+\s[^ ]+/
+      use_regex true
+      filtered_keys none
+      filtered_keys_regex /^sub_[a-zA-Z_0-9]+/
+    </match>
+    ```
 
-```yaml tab="Output"
-{
-  "time"=>"2013-02-12 22:01:15 UTC",
-  "sub_key"=>"0",
-  "sub_akey"=>"11",
-  "sub_zkey"=>"12"
-}
-```
+=== "Input"
+
+    ```yaml
+    {
+      'time' => '2013-02-12 22:01:15 UTC',
+      'log'  => "Start Request sub_key=0 sub_akey=11 sub_zkey=12 key=10 gkey=100 nkey=108 skey='this is a miltispace line' akey=20 zkey=30 dkey=4"
+    }
+    ```
+
+=== "Output"
+
+    ```yaml
+    {
+      "time"=>"2013-02-12 22:01:15 UTC",
+      "sub_key"=>"0",
+      "sub_akey"=>"11",
+      "sub_zkey"=>"12"
+    }
+    ```
 
 Filter log message and whitelist keys that match a given regex or are whitelisted .
 
-```yaml tab="Configuration"
-<match pattern>
-  @type key_value_parser
-  key log
-  remove_key true
-  remove_prefix /^[^ ]+\s[^ ]+/
-  use_regex true
-  filtered_keys key,gkey
-  filtered_keys_regex /^sub_[a-zA-Z_0-9]+/
-</match>
-```
+=== "Configuration"
 
-```yaml tab="Input"
-{
-  'time' => '2013-02-12 22:01:15 UTC',
-  'log'  => "Start Request sub_key=0 sub_akey=11 sub_zkey=12 key=10 gkey=100 nkey=108 skey='this is a miltispace line' akey=20 zkey=30 dkey=4"
-}
-```
+    ```yaml
+    <match pattern>
+      @type key_value_parser
+      key log
+      remove_key true
+      remove_prefix /^[^ ]+\s[^ ]+/
+      use_regex true
+      filtered_keys key,gkey
+      filtered_keys_regex /^sub_[a-zA-Z_0-9]+/
+    </match>
+    ```
 
-```yaml tab="Output"
-{
-  "time"=>"2013-02-12 22:01:15 UTC",
-  "gkey"=>"100",
-  "key"=>"10",
-  "sub_key"=>"0",
-  "sub_akey"=>"11",
-  "sub_zkey"=>"12"
-}
-```
+=== "Input"
+
+    ```yaml
+    {
+      'time' => '2013-02-12 22:01:15 UTC',
+      'log'  => "Start Request sub_key=0 sub_akey=11 sub_zkey=12 key=10 gkey=100 nkey=108 skey='this is a miltispace line' akey=20 zkey=30 dkey=4"
+    }
+    ```
+
+=== "Output"
+
+    ```yaml
+    {
+      "time"=>"2013-02-12 22:01:15 UTC",
+      "gkey"=>"100",
+      "key"=>"10",
+      "sub_key"=>"0",
+      "sub_akey"=>"11",
+      "sub_zkey"=>"12"
+    }
+    ```

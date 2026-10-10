@@ -43,62 +43,74 @@ $~> gem install fluent-plugin-record-splitter
 
 Split lines based on the new line charachter `\n`.
 
-```yaml tab="Configuration"
-<match pattern>
-  @type record_splitter
-  tag splitted.log
-  input_key message
-  split_stratgey lines
-  append_new_line true
-  remove_new_line true
-  shared_keys ["akey"]
-</match>
-```
+=== "Configuration"
 
-```yaml tab="Input"
-{
-  'akey':'c',
-  'abkey':'cc',
-  'message': 'line one\nlines2'
-}
-```
+    ```yaml
+    <match pattern>
+      @type record_splitter
+      tag splitted.log
+      input_key message
+      split_stratgey lines
+      append_new_line true
+      remove_new_line true
+      shared_keys ["akey"]
+    </match>
+    ```
 
-```yaml tab="Output"
-{'akey':'c', 'message': 'line one' }
-{'akey':'c', 'message': 'lines2' }
-```
+=== "Input"
+
+    ```yaml
+    {
+      'akey':'c',
+      'abkey':'cc',
+      'message': 'line one\nlines2'
+    }
+    ```
+
+=== "Output"
+
+    ```yaml
+    {'akey':'c', 'message': 'line one' }
+    {'akey':'c', 'message': 'lines2' }
+    ```
 
 Split lines based on a defined regex.
 
-```yaml tab="Configuration"
-<match pattern>
-  @type record_splitter
-  tag splitted.log
-  input_key message
-  split_stratgey regex
-  split_regex /\d+\s<\d+>.+/
-  remove_keys ["akey"]
-</match>
-```
+=== "Configuration"
 
-```yaml tab="Input"
-{
-  'dkey':'c',
-  'akey':'c',
-  'abkey':'cc',
-  'message': '83 <40>1 2012-11-30T06:45:29+00:00 start app\n90 <40>1 2012-11-30T06:45:26+00:00 host app web.3 - Starting process'
-}
-```
+    ```yaml
+    <match pattern>
+      @type record_splitter
+      tag splitted.log
+      input_key message
+      split_stratgey regex
+      split_regex /\d+\s<\d+>.+/
+      remove_keys ["akey"]
+    </match>
+    ```
 
-```yaml tab="Output"
-{
-  'dkey':'c',
-  'abkey':'cc',
-  'message': '83 <40>1 2012-11-30T06:45:29+00:00 start app'
-}
-{
-  'dkey':'c',
-  'abkey':'cc',
-  'message': '90 <40>1 2012-11-30T06:45:26+00:00 host app web.3 - Starting process'
-}
-```
+=== "Input"
+
+    ```yaml
+    {
+      'dkey':'c',
+      'akey':'c',
+      'abkey':'cc',
+      'message': '83 <40>1 2012-11-30T06:45:29+00:00 start app\n90 <40>1 2012-11-30T06:45:26+00:00 host app web.3 - Starting process'
+    }
+    ```
+
+=== "Output"
+
+    ```yaml
+    {
+      'dkey':'c',
+      'abkey':'cc',
+      'message': '83 <40>1 2012-11-30T06:45:29+00:00 start app'
+    }
+    {
+      'dkey':'c',
+      'abkey':'cc',
+      'message': '90 <40>1 2012-11-30T06:45:26+00:00 host app web.3 - Starting process'
+    }
+    ```

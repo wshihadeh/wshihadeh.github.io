@@ -32,7 +32,7 @@ $~> gem install irb_tracker
 
 In your `bin/rails` file you should add following
 
-~~~ruby
+```ruby
 #!/usr/bin/env ruby
 APP_PATH = File.expand_path('../config/application', __dir__)
 require_relative '../config/boot'
@@ -47,22 +47,26 @@ if (IRBTracker::LDAPLogin.authenticate(RAILS_USER, STDIN.getpass("Password:")))
 else
   puts "Invalid email and user"
 end
-~~~
+```
 
 ## Configurations
 
 Below is a list of environment variables used by the gem
 
-```yaml tab="LDAP Environment Variables"
-LDAP_HOST
-LDAP_PORT
-LDAP_BASE
-LDAP_ADMIN_USER
-LDAP_ADMIN_PASSWORD
-```
+=== "LDAP Environment Variables"
 
-```yaml tab="FluentD Environment Variables"
-FLUENTD_LOGGING_ENABLED
-FLUENTD_LOG_HOST
-FLUENTD_LOG_HOST_PORT
-```
+    ```yaml
+    LDAP_HOST
+    LDAP_PORT
+    LDAP_BASE
+    LDAP_ADMIN_USER
+    LDAP_ADMIN_PASSWORD
+    ```
+
+=== "FluentD Environment Variables"
+
+    ```yaml
+    FLUENTD_LOGGING_ENABLED
+    FLUENTD_LOG_HOST
+    FLUENTD_LOG_HOST_PORT
+    ```
