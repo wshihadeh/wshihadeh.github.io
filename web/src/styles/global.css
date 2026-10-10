@@ -144,17 +144,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .social:hover { border-color: var(--accent); text-decoration: none; transform: translateY(-1px); }
 .social svg { width: 1.1rem; height: 1.1rem; fill: currentColor; }
 
-/* sun + clouds + hills */
-.sun {
-  position: absolute; right: clamp(1rem, 12vw, 9rem); top: clamp(2rem, 6vw, 4.5rem);
-  width: clamp(5rem, 12vw, 9rem); aspect-ratio: 1; border-radius: 50%; z-index: 1;
-  background: radial-gradient(circle at 35% 35%, #fff7c2, #fde047 60%, #facc15);
-  box-shadow: 0 0 80px 20px rgb(253 224 71 / 45%);
-}
-:root[data-theme='dark'] .sun {
-  background: radial-gradient(circle at 35% 35%, #fff, #dbeafe 60%, #bfdbfe);
-  box-shadow: 0 0 60px 10px rgb(191 219 254 / 25%);
-}
+/* clouds + hills */
 .cloud {
   position: absolute; z-index: 1; height: 2.2rem; width: 7rem; border-radius: 999px;
   background: #fff; opacity: .85; filter: blur(.3px); animation: drift 40s linear infinite;
@@ -168,7 +158,6 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 :root[data-theme='dark'] .cloud { opacity: .08; }
 @media (max-width: 720px) {
   .cloud { display: none; }
-  .sun { top: .25rem; right: 1rem; width: 3.5rem; opacity: .9; }
 }
 @keyframes drift { 0% { translate: -30px 0; } 50% { translate: 40px 0; } 100% { translate: -30px 0; } }
 .hills { position: absolute; left: 0; right: 0; bottom: -1px; width: 100%; height: clamp(110px, 18vw, 200px); z-index: 1; display: block; }
