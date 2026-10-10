@@ -7,7 +7,7 @@ title: Welcome
 # Documentation
 
 Guides, configuration examples and usage notes for the open source tools I maintain.
-Looking for articles? Head back to the [home page](https://wshihadeh.github.io/#blog).
+Looking for articles? Head back to the [home page](https://shihadeh.dev/#blog).
 
 </div>
 

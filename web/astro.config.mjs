@@ -17,10 +17,12 @@ const docsPages = [
 ];
 
 export default defineConfig({
-  site: 'https://wshihadeh.github.io',
+  site: 'https://shihadeh.dev',
   outDir: '../docs/site',
   trailingSlash: 'always',
-  build: { format: 'directory' },
+  // GitHub Pages runs Jekyll, which skips folders starting with "_" (Astro's default
+  // is "_astro"), so the build assets must live in a folder with a plain name.
+  build: { format: 'directory', assets: 'assets' },
   // Keep the pre-redesign URLs working now that the docs live under /docs/.
   redirects: Object.fromEntries(docsPages.map((p) => [`/${p}/`, `/docs/${p}/`])),
 });
