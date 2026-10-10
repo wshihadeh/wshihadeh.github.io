@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://wshihadeh.github.io/docs/</loc>
+         <loc>https://shihadeh.dev/docs/</loc>
          <lastmod>2026-10-10</lastmod>
     </url>
     <url>
-         <loc>https://wshihadeh.github.io/docs/Blog/</loc>
+         <loc>https://shihadeh.dev/docs/Blog/</loc>
          <lastmod>2026-10-10</lastmod>
     </url>
     <url>
-         <loc>https://wshihadeh.github.io/docs/actions/Docker-Deployment/</loc>
+         <loc>https://shihadeh.dev/docs/actions/Docker-Deployment/</loc>
          <lastmod>2026-10-10</lastmod>
     </url>
     <url>
-         <loc>https://wshihadeh.github.io/docs/ruby-gems/DeepHealthCheck/</loc>
+         <loc>https://shihadeh.dev/docs/ruby-gems/DeepHealthCheck/</loc>
          <lastmod>2026-10-10</lastmod>
     </url>
     <url>
-         <loc>https://wshihadeh.github.io/docs/ruby-gems/DelayedJobMetrics/</loc>
+         <loc>https://shihadeh.dev/docs/ruby-gems/DelayedJobMetrics/</loc>
          <lastmod>2026-10-10</lastmod>
     </url>
     <url>
-         <loc>https://wshihadeh.github.io/docs/ruby-gems/DockerMetadata/</loc>
+         <loc>https://shihadeh.dev/docs/ruby-gems/DockerMetadata/</loc>
          <lastmod>2026-10-10</lastmod>
     </url>
     <url>
-         <loc>https://wshihadeh.github.io/docs/ruby-gems/EmptyKeys/</loc>
+         <loc>https://shihadeh.dev/docs/ruby-gems/EmptyKeys/</loc>
          <lastmod>2026-10-10</lastmod>
     </url>
     <url>
-         <loc>https://wshihadeh.github.io/docs/ruby-gems/IRBTracker/</loc>
+         <loc>https://shihadeh.dev/docs/ruby-gems/IRBTracker/</loc>
          <lastmod>2026-10-10</lastmod>
     </url>
     <url>
-         <loc>https://wshihadeh.github.io/docs/ruby-gems/Key-ValueParser/</loc>
+         <loc>https://shihadeh.dev/docs/ruby-gems/Key-ValueParser/</loc>
          <lastmod>2026-10-10</lastmod>
     </url>
     <url>
-         <loc>https://wshihadeh.github.io/docs/ruby-gems/Orca/</loc>
+         <loc>https://shihadeh.dev/docs/ruby-gems/Orca/</loc>
          <lastmod>2026-10-10</lastmod>
     </url>
     <url>
-         <loc>https://wshihadeh.github.io/docs/ruby-gems/RabbitMQ/</loc>
+         <loc>https://shihadeh.dev/docs/ruby-gems/RabbitMQ/</loc>
          <lastmod>2026-10-10</lastmod>
     </url>
     <url>
-         <loc>https://wshihadeh.github.io/docs/ruby-gems/RecordSplitter/</loc>
+         <loc>https://shihadeh.dev/docs/ruby-gems/RecordSplitter/</loc>
          <lastmod>2026-10-10</lastmod>
     </url>
 </urlset>
