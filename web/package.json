@@ -1,0 +1,14 @@
+{
+  "name": "wshihadeh-landing",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^7.3.8",
+    "simple-icons": "^16.0.0"
+  }
+}

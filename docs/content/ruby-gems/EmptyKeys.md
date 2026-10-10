@@ -36,53 +36,65 @@ $~> gem install fluent-plugin-filter_empty_keys
 
 Filter out all keys with empty values.
 
-```yaml tab="Configuration"
-<filter **>
-  type empty_keys
-</filter>
-```
+=== "Configuration"
 
-```yaml tab="Input"
-{
-  "field1":"",
-  "field2":"2",
-  "field3":"2013-02-12 22:04:14 UTC",
-  "field4":"",
-  "field5":"a,b,c"
-}
-```
+    ```yaml
+    <filter **>
+      type empty_keys
+    </filter>
+    ```
 
-```yaml tab="Output"
-{
-  "field2":"2",
-  "field3":"2013-02-12 22:04:14 UTC",
-  "field5":"a,b,c"
-}
-```
+=== "Input"
+
+    ```yaml
+    {
+      "field1":"",
+      "field2":"2",
+      "field3":"2013-02-12 22:04:14 UTC",
+      "field4":"",
+      "field5":"a,b,c"
+    }
+    ```
+
+=== "Output"
+
+    ```yaml
+    {
+      "field2":"2",
+      "field3":"2013-02-12 22:04:14 UTC",
+      "field5":"a,b,c"
+    }
+    ```
 
 Filter out all keys with empty, `0`, Undefined values .
 
-```yaml tab="Configuration"
-<filter **>
-  type empty_keys
-  empty_keys field0:0,field2:Undefined
-</filter>
-```
+=== "Configuration"
 
-```yaml tab="Input"
-{
-  "field0":0,
-  "field1":"",
-  "field2":"Undefined",
-  "field3":"2013-02-12 22:04:14 UTC",
-  "field4":"",
-  "field5":"a,b,c"
-}
-```
+    ```yaml
+    <filter **>
+      type empty_keys
+      empty_keys field0:0,field2:Undefined
+    </filter>
+    ```
 
-```yaml tab="Output"
-{
-  "field3":"2013-02-12 22:04:14 UTC",
-  "field5":"a,b,c"
-}
-```
+=== "Input"
+
+    ```yaml
+    {
+      "field0":0,
+      "field1":"",
+      "field2":"Undefined",
+      "field3":"2013-02-12 22:04:14 UTC",
+      "field4":"",
+      "field5":"a,b,c"
+    }
+    ```
+
+=== "Output"
+
+    ```yaml
+    {
+      "field3":"2013-02-12 22:04:14 UTC",
+      "field5":"a,b,c"
+    }
+    ```

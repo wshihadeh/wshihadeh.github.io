@@ -1,0 +1,242 @@
+[
+  {
+    "name": "Software Engineering",
+    "posts": [
+      {
+        "title": "5 Risks That Should Be Avoided in Software Projects",
+        "url": "https://medium.com/@wshihadeh/five-risks-that-should-be-avoided-for-software-projects-d4609b1cba39"
+      },
+      {
+        "title": "Automating Release cycle activities",
+        "url": "https://medium.com/@wshihadeh/automating-release-cycle-activities-56046398a38b"
+      },
+      {
+        "title": "Automate Unit Tests Coverage Reports and Dependency Updates for Your Repositories.",
+        "url": "https://medium.com/@wshihadeh/automate-unit-tests-coverage-reports-and-dependency-updates-for-your-repositories-41be1b858eb3"
+      },
+      {
+        "title": "Tips for Implementing a Software Release Process",
+        "url": "https://medium.com/@wshihadeh/tips-for-implementing-a-software-release-process-8551db21fe85"
+      },
+      {
+        "title": "Avoid Production Incidents by Considering Production Conditions During Development",
+        "url": "https://medium.com/@wshihadeh/avoid-production-incidents-by-considering-production-conditions-during-software-development-a570f043313f"
+      },
+      {
+        "title": "Improve Code Quality and  Git History with Automation tools",
+        "url": "https://medium.com/@wshihadeh/improve-code-quality-and-git-history-with-automation-tools-9979528913a3"
+      },
+      {
+        "title": "How to Add Badges to a GitHub Repository",
+        "url": "https://medium.com/@wshihadeh/add-badges-to-a-github-repository-716d2988dc6a"
+      },
+      {
+        "title": "How to Use Environment Variables with RSpec Unit Tests",
+        "url": "https://medium.com/@wshihadeh/using-environment-variables-with-rspec-unit-tests-f094b400c299"
+      },
+      {
+        "title": "Build a Health Check Rack Middleware",
+        "url": "https://medium.com/@wshihadeh/health-check-rack-middleware-b6b126efbaa8"
+      }
+    ]
+  },
+  {
+    "name": "Kubernetes",
+    "posts": [
+      {
+        "title": "How to Migrate From Docker Compose to Kubernetes",
+        "url": "https://medium.com/@wshihadeh/how-to-migrate-from-docker-compose-to-kubernetes-b57eb229beb2"
+      },
+      {
+        "title": "Resource Limits on Kubernetes",
+        "url": "https://medium.com/@wshihadeh/resource-limits-on-kubernetes-c0f7e7500ab1"
+      },
+      {
+        "title": "Helm Chart Wait for All Dependencies Before Starting Kubernetes Pods",
+        "url": "https://medium.com/@wshihadeh/helm-chart-wait-for-all-dependencies-before-starting-kubernetes-pods-cc0a3ddbf02b"
+      }
+    ]
+  },
+  {
+    "name": "Docker Swarm",
+    "posts": [
+      {
+        "title": "Six Tips For Running Swarm Cluster in Production",
+        "url": "https://medium.com/@wshihadeh/six-tips-for-running-swarm-cluster-in-production-b71cc6763b39"
+      },
+      {
+        "title": "Portainer Review",
+        "url": "https://medium.com/@wshihadeh/portainer-review-382575dabb76"
+      },
+      {
+        "title": "How to Limit Resources for Docker Swarm Services",
+        "url": "https://medium.com/@wshihadeh/limit-resources-for-swarm-services-249dcebed833"
+      },
+      {
+        "title": "Zero Downtime Deployments With Docker Swarm",
+        "url": "https://medium.com/@wshihadeh/zero-downtime-deployment-with-docker-swarm-d84d8d9d9a14"
+      },
+      {
+        "title": "How to Deploy Portus and Docker Registry in Swarm",
+        "url": "https://medium.com/@wshihadeh/how-to-deploy-portus-in-swam-a3b71c7519b5"
+      },
+      {
+        "title": "Orchestrating a Rails Docker Deployment in Swarm",
+        "url": "https://medium.com/@wshihadeh/orchestrating-rails-docker-deployment-in-swarm-474aa6b8d35b"
+      }
+    ]
+  },
+  {
+    "name": "Traefik",
+    "posts": [
+      {
+        "title": "Traefik 2 High Available Mode",
+        "url": "https://medium.com/@wshihadeh/traefik-2-high-available-mode-d09c9ec36295"
+      },
+      {
+        "title": "Prevent DDoS Attacks with Traefik 2",
+        "url": "https://medium.com/@wshihadeh/prevent-ddos-attacks-with-traefik-2-44fb32eeac4f"
+      },
+      {
+        "title": "Integrate Traefik 2.1 Reverse Proxy with Docker Swarm Services",
+        "url": "https://medium.com/@wshihadeh/traefik-2-1-as-a-reverse-proxy-c9e274da0a32"
+      },
+      {
+        "title": "Monitoring Traefik With Grafana",
+        "url": "https://medium.com/@wshihadeh/monitoring-traefik-with-grafana-1d037af5b952"
+      },
+      {
+        "title": "Traefik 2 and Open Tracing",
+        "url": "https://medium.com/@wshihadeh/traefik-2-and-open-tracing-da5c483486e3"
+      }
+    ]
+  },
+  {
+    "name": "Application Logs & Centralized logging",
+    "posts": [
+      {
+        "title": "Parse Ruby on Rails logs with FluentD",
+        "url": "https://medium.com/@wshihadeh/parse-ruby-on-rails-logs-with-fluentd-9fca4df6ebfe"
+      },
+      {
+        "title": "Centralize Your Docker Logging With FluentD",
+        "url": "https://medium.com/@wshihadeh/centralize-your-docker-logging-with-fluentd-a2b7e0a379ce"
+      },
+      {
+        "title": "How to Correlate Rails Requests to Database Logs",
+        "url": "https://medium.com/@wshihadeh/correlate-rails-requests-to-database-logs-1e998228fa43"
+      },
+      {
+        "title": "Centralize Your Docker Logging With Syslog",
+        "url": "https://medium.com/@wshihadeh/docker-centralized-logging-with-syslog-97b9c147bd30"
+      },
+      {
+        "title": "Collect and Store Rails Console Logs",
+        "url": "https://medium.com/@wshihadeh/collect-and-store-rails-console-logs-c1982781c28d"
+      },
+      {
+        "title": "Ruby on Rails Single Line Logging",
+        "url": "https://medium.com/@wshihadeh/ruby-on-rails-single-line-logging-5a76852de1d2"
+      },
+      {
+        "title": "Seven Tips For Using Fluentd For Logs Collection",
+        "url": "https://medium.com/@wshihadeh/7-tips-for-using-fluentd-for-logs-collection-c9613f7a387c"
+      }
+    ]
+  },
+  {
+    "name": "Monitoring",
+    "posts": [
+      {
+        "title": "Monitor Delayed Jobs with Prometheus and Grafana 2",
+        "url": "https://medium.com/@wshihadeh/monitor-delayed-jobs-with-prometheus-and-grafana-2-ccde39c5242e"
+      },
+      {
+        "title": "Monitor Delayed Jobs with Prometheus and Grafana 1",
+        "url": "https://medium.com/@wshihadeh/monitor-delayed-jobs-with-prometheus-and-grafana-1-bc32ae12525c"
+      }
+    ]
+  },
+  {
+    "name": "Containers and Orchestrators",
+    "posts": [
+      {
+        "title": "Five Use Cases For Docker Entry Points",
+        "url": "https://medium.com/@wshihadeh/five-use-cases-for-docker-entry-points-a5eb6661dac6"
+      },
+      {
+        "title": "Cache and Serve Rails Static Assets With Nginx Reverse Proxy",
+        "url": "https://medium.com/@wshihadeh/cache-and-serve-rails-static-assets-with-nginx-reverse-proxy-dfcd49319547"
+      },
+      {
+        "title": "Three Methods to Share Rails Assets With Nginx",
+        "url": "https://medium.com/@wshihadeh/three-methods-to-share-rails-assets-with-nginx-f39c90bb7d68"
+      },
+      {
+        "title": "How to Detect Vulnerabilities in Docker Images",
+        "url": "https://medium.com/@wshihadeh/detect-vulnerabilities-in-docker-images-d21f1b762898"
+      },
+      {
+        "title": "Dockerizing Rails Applications Part 3: CI/CD Integration",
+        "url": "https://medium.com/@wshihadeh/dockerizing-rails-applications-part-3-ci-cd-integration-9f2dcd84780f"
+      },
+      {
+        "title": "Dockerizing Rails Applications Part 2: Automation",
+        "url": "https://medium.com/@wshihadeh/dockerizing-rails-applications-part-2-automation-3092975fa4bb"
+      },
+      {
+        "title": "Dockerizing Rails Applications Part 1: Writing the Dockerfile",
+        "url": "https://medium.com/@wshihadeh/dockerizing-rails-applications-part-1-writing-the-dockerfile-dc32aa25a0da"
+      },
+      {
+        "title": "Automate Docker Registry Cleanup",
+        "url": "https://medium.com/@wshihadeh/automate-docker-registry-cleanup-3a1af0aa1535"
+      },
+      {
+        "title": "How to Build Docker Base Images for Rails",
+        "url": "https://medium.com/@wshihadeh/build-docker-base-images-for-rails-2258ea2f11dc"
+      }
+    ]
+  },
+  {
+    "name": "DevOps Tools & Tricks",
+    "posts": [
+      {
+        "title": "Build GitHub Actions Using Docker Containers",
+        "url": "https://medium.com/@wshihadeh/build-github-actions-using-docker-containers-c57a97be60e2"
+      },
+      {
+        "title": "Build a Blog With GitHub and MkDocs",
+        "url": "https://medium.com/@wshihadeh/build-a-blog-with-github-and-mkdocs-cf47914affa7"
+      },
+      {
+        "title": "5 Tips for Hosting Your Own Jenkins Instance",
+        "url": "https://medium.com/@wshihadeh/5-tips-for-hosting-your-own-jenkins-instance-64b058ad2c2a"
+      },
+      {
+        "title": "How to Minimize the Costs of Running AWS EC2 Instances Using Terraform",
+        "url": "https://medium.com/@wshihadeh/minimize-the-costs-of-running-aws-ec2-instances-using-terraform-3999c5141830"
+      },
+      {
+        "title": "Build an OpenLDAP Docker Image That’s Populated With Users",
+        "url": "https://medium.com/@wshihadeh/ldap-docker-image-with-populated-users-3a5b4d090aa4"
+      },
+      {
+        "title": "Create SonarQube Jenkins webhook",
+        "url": "https://medium.com/@wshihadeh/create-sonarqube-jenkins-webhook-8f4c6cce3920"
+      },
+      {
+        "title": "How to Add Github Webhooks to a Jenkins Pipeline",
+        "url": "https://medium.com/@wshihadeh/how-too-add-github-webhook-to-a-jenkins-pipeline-62b0be84e006"
+      },
+      {
+        "title": "Improve Your Productivity Using Git and Bash Aliases",
+        "url": "https://medium.com/@wshihadeh/useful-configs-and-aliases-for-git-and-local-development-environments-b7a0822591a6"
+      },
+      {
+        "title": "Host a Secure Private Gem Server With LDAP Authentication and Authorization",
+        "url": "https://medium.com/@wshihadeh/hosting-a-private-gem-server-2288249caf77"
+      }
+    ]
+  }
+]

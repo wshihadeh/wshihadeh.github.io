@@ -1,61 +1,97 @@
 site_name: Al-waleed Shihadeh
-site_description: Al-waleed Shihadeh blog
+site_description: Documentation for the Ruby gems, FluentD plugins and GitHub Action maintained by Al-waleed Shihadeh
 site_author: wshihadeh
-site_url: https://wshihadeh.github.io
+# The landing page (web/) is served from the root, the docs live under /docs/.
+site_url: https://wshihadeh.github.io/docs/
 dev_addr: 0.0.0.0:8000
 
-repo_name: 'GitHub'
-repo_url: 'https://github.com/wshihadeh/wshihadeh.github.io'
+repo_name: wshihadeh/wshihadeh.github.io
+repo_url: https://github.com/wshihadeh/wshihadeh.github.io
 
 docs_dir: 'content'
+# Written inside the landing page output so one folder is deployed to GitHub Pages.
+site_dir: 'site/docs'
 edit_uri: 'edit/source/docs/content/'
 
 # https://squidfunk.github.io/mkdocs-material/
 theme:
-  name: 'material'
-  custom_dir: 'theme'
+  name: material
   language: en
-  include_sidebar: true
-  #favicon: assets/img/icon.png
-  #logo: assets/img/logo.png
-  feature:
-    tabs: false
+  logo: assets/img/logo.svg
+  favicon: assets/img/favicon.svg
+  font:
+    text: Inter
+    code: JetBrains Mono
   palette:
-    primary: 'cyan'
-    accent: 'cyan'
-  i18n:
-    prev: 'Previous'
-    next: 'Next'
+    - media: '(prefers-color-scheme: light)'
+      scheme: default
+      primary: light blue
+      accent: green
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: '(prefers-color-scheme: dark)'
+      scheme: slate
+      primary: light blue
+      accent: green
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - toc.follow
+    - content.code.copy
+    - content.action.edit
 
-copyright: "Copyright &copy; 2016-2019 Al-waleed Shihadeh"
+copyright: "Copyright &copy; 2016-2026 Al-waleed Shihadeh"
 
 extra_css:
   - assets/styles/extra.css
-  - assets/styles/atom-one-light.css # HightlightJS's CSS theme
 
-extra_javascript:
-  - assets/js/hljs/highlight.pack.js # Download from https://highlightjs.org/download/ and enable YAML, TOML and Dockerfile
-  - assets/js/extra.js
+extra:
+  homepage: https://wshihadeh.github.io/
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/wshihadeh
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/wshihadeh/
+    - icon: fontawesome/brands/medium
+      link: https://medium.com/@wshihadeh
+    - icon: fontawesome/brands/stack-overflow
+      link: https://stackoverflow.com/users/12747692/al-waleed-shihadeh
+    - icon: fontawesome/brands/x-twitter
+      link: https://twitter.com/wshihadh
 
 plugins:
   - search
-  - exclude:
-      glob:
-        - "**/include-*.md"
 
-# https://squidfunk.github.io/mkdocs-material/extensions/admonition/
-# https://facelessuser.github.io/pymdown-extensions/
+# https://squidfunk.github.io/mkdocs-material/setup/extensions/
 markdown_extensions:
   - attr_list
   - admonition
   - footnotes
+  - md_in_html
   - pymdownx.details
   - pymdownx.inlinehilite
   - pymdownx.highlight:
-      use_pygments: false # hljs is used instead of pygment for TOML highlighting support
+      anchor_linenums: true
   - pymdownx.smartsymbols
   - pymdownx.superfences
-  - pymdownx.tasklist
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.snippets:
       check_paths: true
   - toc:
@@ -66,16 +102,15 @@ nav:
   - 'Welcome': 'index.md'
   - 'Blog Posts': 'Blog.md'
   - 'GitHub Actions':
-      - 'Docker Deployment' : 'actions/Docker-Deployment.md'
+      - 'Docker Deployment': 'actions/Docker-Deployment.md'
   - 'Ruby Gems':
       - 'DeepHealthCheck': 'ruby-gems/DeepHealthCheck.md'
-      - 'DelayedJob Metrics' : 'ruby-gems/DelayedJobMetrics.md'
-      - 'FluentD Plugins' :
+      - 'DelayedJob Metrics': 'ruby-gems/DelayedJobMetrics.md'
+      - 'FluentD Plugins':
           - 'Docker Metadata': 'ruby-gems/DockerMetadata.md'
           - 'Empty Keys': 'ruby-gems/EmptyKeys.md'
           - 'Key-Value Parser': 'ruby-gems/Key-ValueParser.md'
           - 'Record Splitter': 'ruby-gems/RecordSplitter.md'
-      - 'IRBTracker' : 'ruby-gems/IRBTracker.md'
-      - 'RabbitMQ Client' : 'ruby-gems/RabbitMQ.md'
-      - 'Swarm Orca' : 'ruby-gems/Orca.md'
-  #- 'PoC':
+      - 'IRBTracker': 'ruby-gems/IRBTracker.md'
+      - 'RabbitMQ Client': 'ruby-gems/RabbitMQ.md'
+      - 'Swarm Orca': 'ruby-gems/Orca.md'

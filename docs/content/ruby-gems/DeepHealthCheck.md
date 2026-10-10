@@ -11,18 +11,18 @@ A simple Health status API
 
 Install gem
 
-~~~ruby
+```ruby
  # Gemfile
  gem 'deep_health_check'
-~~~
+```
 
 Add middleware before Rails::Rack::Logger to prevent false positive response
 if other middleware fails when database is down for example ActiveRecord::QueryCache
 
-~~~ruby
+```ruby
  # config/application.rb
  config.middleware.insert_after "Rails::Rack::Logger", DeepHealthCheck::MiddlewareHealthCheck
-~~~
+```
 
 ## Protect Health Check endpoints using htauth credentials.
 

@@ -1,0 +1,77 @@
+[
+  {
+    "group": "GitHub Action",
+    "items": [
+      {
+        "name": "Docker Deployment",
+        "description": "A GitHub Action that deploys docker-compose and Docker Swarm stacks.",
+        "doc": "actions/Docker-Deployment",
+        "tag": "Action"
+      }
+    ]
+  },
+  {
+    "group": "Ruby gems",
+    "items": [
+      {
+        "name": "Deep Health Check",
+        "description": "A Rack health check middleware that verifies the services an app depends on.",
+        "doc": "ruby-gems/DeepHealthCheck",
+        "tag": "Rack"
+      },
+      {
+        "name": "DelayedJob Metrics",
+        "description": "Expose Prometheus metrics for Delayed Jobs.",
+        "doc": "ruby-gems/DelayedJobMetrics",
+        "tag": "Prometheus"
+      },
+      {
+        "name": "IRBTracker",
+        "description": "Track and correlate every command run in the IRB console, with LDAP authentication.",
+        "doc": "ruby-gems/IRBTracker",
+        "tag": "Rails"
+      },
+      {
+        "name": "RabbitMQ Client",
+        "description": "A RabbitMQ client for Ruby applications.",
+        "doc": "ruby-gems/RabbitMQ",
+        "tag": "Messaging"
+      },
+      {
+        "name": "Swarm Orca",
+        "description": "Capistrano recipes to deploy services and Rails applications to a Docker Swarm cluster.",
+        "doc": "ruby-gems/Orca",
+        "tag": "Swarm"
+      }
+    ]
+  },
+  {
+    "group": "FluentD plugins",
+    "items": [
+      {
+        "name": "Docker Metadata",
+        "description": "Attach Docker Swarm service and container names to FluentD messages.",
+        "doc": "ruby-gems/DockerMetadata",
+        "tag": "FluentD"
+      },
+      {
+        "name": "Empty Keys",
+        "description": "Filter out and remove empty keys from FluentD messages.",
+        "doc": "ruby-gems/EmptyKeys",
+        "tag": "FluentD"
+      },
+      {
+        "name": "Key-Value Parser",
+        "description": "Parse key-value formatted FluentD events and extract their attributes.",
+        "doc": "ruby-gems/Key-ValueParser",
+        "tag": "FluentD"
+      },
+      {
+        "name": "Record Splitter",
+        "description": "Split a single FluentD event into multiple records.",
+        "doc": "ruby-gems/RecordSplitter",
+        "tag": "FluentD"
+      }
+    ]
+  }
+]
