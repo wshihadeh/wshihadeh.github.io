@@ -1,1 +1,15 @@
-docs/site
+# Build output (landing page + docs, deployed to the master branch)
+docs/site/
+
+# Dependencies and framework caches
+node_modules/
+.astro/
+
+# OS and editor files
+.DS_Store
+.idea/
+.vscode/
+
+# Local Claude Code files
+.claude/launch.json
+.claude/settings.local.json
